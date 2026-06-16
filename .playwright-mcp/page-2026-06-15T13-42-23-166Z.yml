@@ -1,0 +1,1526 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - img
+  - generic:
+    - img
+  - generic:
+    - img
+  - generic:
+    - img
+  - generic [ref=e2]:
+    - img
+  - banner [ref=e3]:
+    - navigation [ref=e7]:
+      - link "Slot Machine Demo ▶ Play Free Slot Game" [ref=e9] [cursor=pointer]:
+        - /url: https://casino.guru/
+        - img "Slot Machine Demo ▶ Play Free Slot Game" [ref=e11]
+      - generic [ref=e13]:
+        - textbox "Search for casinos, games, and more" [ref=e14]
+        - generic [ref=e15] [cursor=pointer]:
+          - img
+      - generic [ref=e16]:
+        - generic [ref=e17] [cursor=pointer]:
+          - generic [ref=e18]: EN
+          - generic [ref=e19]: "|"
+          - img
+        - generic [ref=e21] [cursor=pointer]: Login
+        - link "Sign up" [ref=e22] [cursor=pointer]:
+          - /url: https://casino.guru/signup
+          - generic [ref=e24]: Sign up
+      - generic [ref=e25]:
+        - img [ref=e27] [cursor=pointer]
+        - generic [ref=e32]:
+          - generic [ref=e33] [cursor=pointer]:
+            - img [ref=e34]
+            - generic [ref=e40]: Continue with Google
+          - generic [ref=e41] [cursor=pointer]:
+            - img [ref=e42]
+            - generic [ref=e45]: Continue with Apple
+          - generic [ref=e47]: or
+          - generic [ref=e48]:
+            - generic [ref=e49]:
+              - textbox "E-mail address or username E-mail address or username E-mail address or username E-mail address or username" [ref=e50]:
+                - /placeholder: " "
+              - generic [ref=e51]: E-mail address or username
+              - generic [ref=e52]: E-mail address or username
+            - generic [ref=e53]:
+              - textbox "Password Password Password Password" [ref=e54]:
+                - /placeholder: " "
+              - generic [ref=e55]: Password
+              - generic [ref=e56]: Password
+            - generic [ref=e57]:
+              - generic [ref=e58]:
+                - generic [ref=e59]:
+                  - checkbox "Stay logged in" [checked]
+                - generic [ref=e61]: Stay logged in
+              - link "Forgotten password" [ref=e62] [cursor=pointer]:
+                - /url: /reset-password
+            - button "Log in" [ref=e64] [cursor=pointer]
+          - paragraph [ref=e65]:
+            - text: Don't have an account?
+            - link "Sign up" [ref=e66] [cursor=pointer]:
+              - /url: /signup
+      - generic [ref=e72]:
+        - list [ref=e73]:
+          - listitem
+          - listitem [ref=e74]:
+            - link "Home" [ref=e75] [cursor=pointer]:
+              - /url: /
+              - img
+              - text: Home
+          - listitem [ref=e76]:
+            - link "Online Casinos" [ref=e77] [cursor=pointer]:
+              - /url: https://casino.guru/top-online-casinos
+              - img
+              - text: Online Casinos
+            - generic [ref=e79]:
+              - generic [ref=e80]:
+                - generic [ref=e81]: Online casinos
+                - link "Best online casinos" [ref=e82] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos
+                  - img
+                  - text: Best online casinos
+                - link "Online casinos India" [ref=e83] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/india
+                - link "New online casinos" [ref=e84] [cursor=pointer]:
+                  - /url: https://casino.guru/new-online-casinos
+                - link "Big online casinos" [ref=e85] [cursor=pointer]:
+                  - /url: https://casino.guru/big-online-casinos#tab=LEADING_BRANDS
+                - link "Safest online casinos" [ref=e86] [cursor=pointer]:
+                  - /url: https://casino.guru/safest-online-casinos
+                - link "Real money gambling sites" [ref=e87] [cursor=pointer]:
+                  - /url: https://casino.guru/real-money-gambling-sites
+              - generic [ref=e88]:
+                - generic [ref=e89]: Popular filters
+                - link "Mobile casinos" [ref=e90] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/mobile
+                - link "Crypto casinos" [ref=e91] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/bitcoin-cryptocurrency
+                - link "Live dealer casinos" [ref=e92] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/live-dealer-games
+                - link "High roller VIP casinos" [ref=e93] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/high-roller-casinos
+                - link "Anonymous casinos" [ref=e94] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/anonymous-casinos
+              - generic [ref=e95]:
+                - generic [ref=e96]: Payment methods
+                - link "PaysafeCard casinos" [ref=e97] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/PaySafeCard-payments
+                - link "Skrill casinos" [ref=e98] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/Skrill-payments
+                - link "Google Pay casinos" [ref=e99] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/google-pay-payments
+                - link "Bank Transfer casinos" [ref=e100] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/bank-transfer-payments
+                - link "VISA casinos" [ref=e101] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/visa-payments
+                - link "All payment methods" [ref=e102] [cursor=pointer]:
+                  - /url: https://casino.guru/casino-payment-methods
+              - img "menu-img-casinos.png" [ref=e104]
+          - listitem [ref=e105]:
+            - link "Games" [ref=e106] [cursor=pointer]:
+              - /url: https://casino.guru/free-casino-games
+              - img
+              - text: Games
+            - generic [ref=e108]:
+              - generic [ref=e109]:
+                - generic [ref=e110]: Free casino games
+                - link "Free casino games" [ref=e111] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games
+                  - img
+                  - text: Free casino games
+                - link "New casino games" [ref=e112] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/new#sort_by=LATEST_DESC
+                - link "Free slot machines" [ref=e113] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots
+                - link "Free roulette" [ref=e114] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/roulette
+                - link "Free blackjack" [ref=e115] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/blackjack
+                - link "Free keno" [ref=e116] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/keno
+              - generic [ref=e117]:
+                - generic [ref=e118]: Game providers
+                - link "Pragmatic Play games" [ref=e119] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/pragmatic-play
+                - link "Habanero games" [ref=e120] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/habanero
+                - link "Amusnet (EGT) games" [ref=e121] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/amusnet
+                - link "Amatic games" [ref=e122] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/amatic
+                - link "PGSoft games" [ref=e123] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/pgsoft-pocket-games-soft
+                - link "Nolimit City games" [ref=e124] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/nolimit-city
+                - link "Playtech games" [ref=e125] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/playtech
+              - generic [ref=e126]:
+                - generic [ref=e127]: Real money play
+                - link "Slots sites" [ref=e128] [cursor=pointer]:
+                  - /url: https://casino.guru/best-slots-sites
+                - link "New slots sites" [ref=e129] [cursor=pointer]:
+                  - /url: https://casino.guru/new-slots-sites
+                - link "Roulette sites" [ref=e130] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/live-roulette-sites
+                - link "Bingo sites" [ref=e131] [cursor=pointer]:
+                  - /url: https://casino.guru/best-bingo-sites
+                - link "Pragmatic Play casinos" [ref=e132] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/Pragmatic-Play-games
+                - link "Nolimit City casinos" [ref=e133] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/nolimit-city-games
+                - link "BGaming casinos" [ref=e134] [cursor=pointer]:
+                  - /url: https://casino.guru/top-online-casinos/bgaming-games
+              - img "menu-img-games" [ref=e136]
+          - listitem [ref=e137]:
+            - link "Bonuses" [ref=e138] [cursor=pointer]:
+              - /url: https://casino.guru/online-casino-bonuses
+              - img
+              - text: Bonuses
+            - generic [ref=e140]:
+              - generic [ref=e141]:
+                - generic [ref=e142]: Casino bonuses
+                - link "No deposit bonuses" [ref=e143] [cursor=pointer]:
+                  - /url: https://casino.guru/no-deposit-bonuses-casino
+                  - img
+                  - text: No deposit bonuses
+                - link "Deposit bonuses" [ref=e144] [cursor=pointer]:
+                  - /url: https://casino.guru/best-online-casino-bonus
+                - link "Reload bonuses" [ref=e145] [cursor=pointer]:
+                  - /url: https://casino.guru/casino-reload-bonuses
+                - link "Cashback bonuses" [ref=e146] [cursor=pointer]:
+                  - /url: https://casino.guru/casino-cashback
+                - link "All bonuses" [ref=e147] [cursor=pointer]:
+                  - /url: https://casino.guru/online-casino-bonuses#tab=ALL
+              - generic [ref=e148]:
+                - generic [ref=e149]: Other lists
+                - link "New no deposit bonuses" [ref=e150] [cursor=pointer]:
+                  - /url: https://casino.guru/no-deposit-bonuses-casino/new#sort_by=LATEST_DESC
+                - link "Exclusive no deposit bonuses" [ref=e151] [cursor=pointer]:
+                  - /url: https://casino.guru/no-deposit-bonuses-casino/exclusive
+                - link "Welcome bonuses" [ref=e152] [cursor=pointer]:
+                  - /url: https://casino.guru/online-casino-bonuses/welcome-bonuses
+                - link "No wagering bonuses" [ref=e153] [cursor=pointer]:
+                  - /url: https://casino.guru/online-casino-bonuses/no-wagering
+              - img "menu-img-casinos.png" [ref=e155]
+          - listitem [ref=e156]:
+            - link "Guide" [ref=e157] [cursor=pointer]:
+              - /url: https://casino.guru/guide
+              - img
+              - text: Guide
+          - listitem [ref=e158]:
+            - link "Complaints" [ref=e159] [cursor=pointer]:
+              - /url: https://casino.guru/complaints/all
+              - img
+              - text: Complaints
+            - generic [ref=e161]:
+              - generic [ref=e162]:
+                - generic [ref=e163]: Browse complaints
+                - link "Complaints overview" [ref=e164] [cursor=pointer]:
+                  - /url: https://casino.guru/complaints/all
+                - link "Opened" [ref=e165] [cursor=pointer]:
+                  - /url: https://casino.guru/complaints/in_progress
+                - link "Unresolved" [ref=e166] [cursor=pointer]:
+                  - /url: https://casino.guru/complaints/unresolved
+                - link "Resolved" [ref=e167] [cursor=pointer]:
+                  - /url: https://casino.guru/complaints/resolved
+                - link "Rejected" [ref=e168] [cursor=pointer]:
+                  - /url: https://casino.guru/complaints/rejected
+              - generic [ref=e169]:
+                - generic [ref=e170]: Learn more
+                - link "Complaint resolution instructions" [ref=e171] [cursor=pointer]:
+                  - /url: https://casino.guru/guide/complaint-resolution-instructions
+                - link "How we resolve complaints" [ref=e172] [cursor=pointer]:
+                  - /url: https://casino.guru/guide/how-we-resolve-casino-complaints
+                - link "Licensing authorities" [ref=e173] [cursor=pointer]:
+                  - /url: https://casino.guru/licensing-authorities
+                - link "Submitting complaints to regulators" [ref=e174] [cursor=pointer]:
+                  - /url: https://casino.guru/guide/submitting-complaints-to-regulators
+              - img "menu-img-casinos.png" [ref=e176]
+          - listitem [ref=e177]:
+            - link "Forum" [ref=e178] [cursor=pointer]:
+              - /url: https://casino.guru/forum
+              - img
+              - text: Forum
+          - listitem [ref=e179]:
+            - link "Reviews" [ref=e180] [cursor=pointer]:
+              - /url: https://casino.guru/casino-reviews
+              - img
+              - text: Reviews
+          - listitem [ref=e181]:
+            - link "Tournaments" [ref=e182] [cursor=pointer]:
+              - /url: https://casino.guru/tournaments
+              - img
+              - text: Tournaments
+          - listitem [ref=e183]:
+            - link "News" [ref=e184] [cursor=pointer]:
+              - /url: https://casino.guru/news
+              - img
+              - text: News
+          - listitem
+          - listitem
+          - listitem [ref=e185]
+        - generic [ref=e187]:
+          - link "About us" [ref=e188] [cursor=pointer]:
+            - /url: https://casino.guru/about-us
+          - link "Terms of use" [ref=e189] [cursor=pointer]:
+            - /url: https://casino.guru/terms-and-conditions
+          - generic [ref=e190]: Social media
+          - generic:
+            - link "Facebook" [ref=e191] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61558301061001
+              - img
+            - link "Twitter" [ref=e192] [cursor=pointer]:
+              - /url: https://twitter.com/CasinoGuruTweet
+              - img
+            - link "Instagram" [ref=e193] [cursor=pointer]:
+              - /url: https://www.instagram.com/igamingguru
+              - img
+            - link "LinkedIn" [ref=e194] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/casinoguru/
+              - img
+            - link "YouTube" [ref=e195] [cursor=pointer]:
+              - /url: https://www.youtube.com/c/CasinoGuruTube
+              - img
+  - generic [ref=e199]:
+    - generic [ref=e201]:
+      - img "Slot Machine" [ref=e204]
+      - generic [ref=e205]:
+        - heading "Slot Machine Free Play in Demo Mode" [level=1] [ref=e206]
+        - link "by BGaming" [ref=e207] [cursor=pointer]:
+          - /url: https://casino.guru/free-casino-games/bgaming
+      - generic [ref=e208] [cursor=pointer]:
+        - img
+        - text: Play for Real Money
+    - iframe [ref=e1288]:
+      - generic [ref=f1e3]: ЯSфzЯSфzЯSфzЯSфzЯSфzЯSфz
+    - generic [ref=e218]:
+      - generic [ref=e219]:
+        - generic [ref=e221]:
+          - img
+          - text: My list
+        - generic [ref=e222]:
+          - generic [ref=e224]: "11"
+          - generic [ref=e225]:
+            - img
+        - generic [ref=e226]:
+          - img
+        - link "1 comment" [ref=e227] [cursor=pointer]:
+          - /url: https://casino.guru/free-casino-games/slots/slot-machine-slot-play-free#game-discussion
+          - img
+          - generic [ref=e228]: 1 comment
+        - generic [ref=e229]:
+          - img
+          - generic [ref=e230]: Report
+        - button "Share" [ref=e231] [cursor=pointer]:
+          - img
+          - generic [ref=e232]: Share
+      - generic [ref=e235] [cursor=pointer]:
+        - img
+  - generic [ref=e237]:
+    - generic [ref=e238]:
+      - generic [ref=e239]:
+        - img "Slot Machine" [ref=e241]
+        - heading "Game information" [level=2] [ref=e242]
+        - table [ref=e243]:
+          - rowgroup [ref=e244]:
+            - row "Game provider BGaming" [ref=e245]:
+              - cell "Game provider" [ref=e246]
+              - cell "BGaming" [ref=e247]
+            - row "Progressive Jackpot" [ref=e248]:
+              - cell "Progressive Jackpot" [ref=e249]
+              - cell [ref=e250]:
+                - generic [ref=e251]:
+                  - img
+            - row "Configurable winlines" [ref=e252]:
+              - cell "Configurable winlines" [ref=e253]
+              - cell [ref=e254]:
+                - generic [ref=e255]:
+                  - img
+            - row "Free spins" [ref=e256]:
+              - cell "Free spins" [ref=e257]
+              - cell [ref=e258]:
+                - generic [ref=e259]:
+                  - img
+            - row "Autoplay" [ref=e260]:
+              - cell "Autoplay" [ref=e261]
+              - cell [ref=e262]:
+                - generic [ref=e263]:
+                  - img
+            - row "Quickspin feature" [ref=e264]:
+              - cell "Quickspin feature" [ref=e265]
+              - cell [ref=e266]:
+                - generic [ref=e267]:
+                  - img
+            - row "Gamble feature" [ref=e268]:
+              - cell "Gamble feature" [ref=e269]
+              - cell [ref=e270]:
+                - generic [ref=e271]:
+                  - img
+        - table [ref=e272]:
+          - rowgroup [ref=e273]:
+            - row "Bonus buy" [ref=e274]:
+              - cell "Bonus buy" [ref=e275]
+              - cell [ref=e276]:
+                - generic [ref=e277]:
+                  - img
+            - row "Number of winlines 5" [ref=e278]:
+              - cell "Number of winlines" [ref=e279]
+              - cell "5" [ref=e280]
+            - row "Layout 3-3-3" [ref=e281]:
+              - cell "Layout" [ref=e282]
+              - cell "3-3-3" [ref=e283]
+            - row "Min bet $0.1" [ref=e284]:
+              - cell "Min bet" [ref=e285]:
+                - text: Min bet
+                - button [ref=e286] [cursor=pointer]:
+                  - img
+              - cell "$0.1" [ref=e287]
+            - row "Max bet $80" [ref=e288]:
+              - cell "Max bet" [ref=e289]:
+                - text: Max bet
+                - button [ref=e290] [cursor=pointer]:
+                  - img
+              - cell "$80" [ref=e291]
+        - table [ref=e292]:
+          - rowgroup [ref=e293]:
+            - row "Release date December 2023" [ref=e294]:
+              - cell "Release date" [ref=e295]
+              - cell "December 2023" [ref=e296]
+      - generic [ref=e297]:
+        - heading "Game themes" [level=2] [ref=e298]:
+          - img
+          - text: Game themes
+        - generic [ref=e299]:
+          - link "Fruits" [ref=e300] [cursor=pointer]:
+            - /url: https://casino.guru/free-casino-games/fruit-slots
+          - link "3-Reels" [ref=e301] [cursor=pointer]:
+            - /url: https://casino.guru/free-casino-games/3-reels
+      - generic [ref=e302]:
+        - paragraph [ref=e304]: Feel free to add this game to your website.
+        - generic [ref=e306] [cursor=pointer]:
+          - img
+          - text: Copy Embed Code
+    - generic [ref=e307]:
+      - heading "Slot Machine" [level=2] [ref=e308]
+      - paragraph [ref=e309]: Play Slot Machine demo slot online for fun. Enjoy free casino games in demo mode on Casino Guru. No download required.
+    - generic [ref=e311]:
+      - generic [ref=e312]:
+        - img
+        - generic [ref=e313]:
+          - generic [ref=e314]: Return to player
+          - generic [ref=e315]: 97%
+        - button [ref=e316] [cursor=pointer]:
+          - img
+      - generic [ref=e317]:
+        - img
+        - generic [ref=e318]:
+          - generic [ref=e319]: Game Type
+          - generic [ref=e320]: Slots
+      - generic [ref=e321]:
+        - img
+        - generic [ref=e322]:
+          - generic [ref=e323]: Max win
+          - generic [ref=e324]: 2,124x
+      - generic [ref=e325]:
+        - img
+        - generic [ref=e326]:
+          - generic [ref=e327]: Payout system
+          - generic [ref=e328]: Winlines
+    - generic [ref=e330]:
+      - heading "About game" [level=2] [ref=e331]:
+        - img
+        - text: About game
+      - paragraph [ref=e332]:
+        - text: Slot Machine is a slot machine by
+        - link "BGaming" [ref=e333] [cursor=pointer]:
+          - /url: https://casino.guru/free-casino-games/bgaming
+        - text: . According to the number of players searching for it, Slot Machine is not a very popular slot. Still, that doesn't necessarily mean that it's bad, so give it a try and see for yourself, or browse
+        - link "popular casino games" [ref=e334] [cursor=pointer]:
+          - /url: https://casino.guru/free-casino-games/most-popular#sort_by=RECOMMENDED_DESC
+        - text: .
+        - text: To play for free in demo mode, just load the game and press the 'Spin' button. You can learn more about slot machines and how they work in our
+        - link "online slots guide" [ref=e335] [cursor=pointer]:
+          - /url: https://casino.guru/guide/how-slot-machines-work-math
+        - text: .
+    - generic [ref=e336]:
+      - heading "About game provider" [level=2] [ref=e337]:
+        - img
+        - text: About game provider
+      - generic [ref=e338]:
+        - img "null" [ref=e341]
+        - generic [ref=e342]:
+          - heading "BGaming" [level=5] [ref=e343]
+          - generic [ref=e344]:
+            - link "BGaming games" [ref=e345] [cursor=pointer]:
+              - /url: https://casino.guru/free-casino-games/bgaming
+              - img
+              - generic [ref=e346]: BGaming games
+              - img
+            - generic [ref=e347]:
+              - img
+              - generic [ref=e348]: BGaming casinos
+              - img
+  - generic [ref=e349]:
+    - generic [ref=e351]:
+      - link "Tournaments" [ref=e353] [cursor=pointer]:
+        - /url: https://casino.guru/tournaments
+        - img
+        - heading "Tournaments" [level=2] [ref=e355]
+      - generic [ref=e356]:
+        - generic [ref=e358]:
+          - generic [ref=e360]:
+            - generic [ref=e361]: Monthly tournament
+            - generic [ref=e362]:
+              - img "candy_rush_tournie_background" [ref=e365]
+              - img "candy_rush_tournie_bg" [ref=e368]
+              - generic [ref=e369]:
+                - img
+                - generic [ref=e370]: 16:08:17
+            - generic [ref=e371]:
+              - generic [ref=e372]:
+                - generic [ref=e373]: Candy Rush
+                - generic [ref=e374]: by Pragmatic Play
+              - generic [ref=e376]:
+                - text: $1,000
+                - img "tournament-coins" [ref=e377]
+              - generic [ref=e378]:
+                - generic [ref=e379] [cursor=pointer]: More info
+                - link "Play" [ref=e380] [cursor=pointer]:
+                  - /url: https://casino.guru/tournaments/monthly-227-candy-rush
+          - generic [ref=e382]:
+            - generic [ref=e383]: Monthly tournament
+            - generic [ref=e384]:
+              - generic [ref=e385]: Prize pool
+              - generic [ref=e386]: $1,000
+              - list [ref=e387]:
+                - listitem [ref=e388]:
+                  - generic [ref=e389]: "1"
+                  - generic [ref=e390]: $380
+                - listitem [ref=e391]:
+                  - generic [ref=e392]: "2"
+                  - generic [ref=e393]: $250
+                - listitem [ref=e394]:
+                  - generic [ref=e395]: "3"
+                  - generic [ref=e396]: $120
+                - listitem [ref=e397]:
+                  - generic [ref=e398]: "4"
+                  - generic [ref=e399]: $75
+                - listitem [ref=e400]:
+                  - generic [ref=e401]: "5"
+                  - generic [ref=e402]: $50
+                - listitem [ref=e403]:
+                  - generic [ref=e404]: "6"
+                  - generic [ref=e405]: $25
+                - listitem [ref=e406]:
+                  - generic [ref=e407]: "7"
+                  - generic [ref=e408]: $25
+                - listitem [ref=e409]:
+                  - generic [ref=e410]: "8"
+                  - generic [ref=e411]: $25
+                - listitem [ref=e412]:
+                  - generic [ref=e413]: "9"
+                  - generic [ref=e414]: $25
+                - listitem [ref=e415]:
+                  - generic [ref=e416]: "10"
+                  - generic [ref=e417]: $25
+              - generic [ref=e418]: Other information
+              - list [ref=e419]:
+                - listitem [ref=e420]:
+                  - text: "Total free spins:"
+                  - generic [ref=e421]: "500"
+                - listitem [ref=e422]:
+                  - text: "Game Provider:"
+                  - generic [ref=e423]: Pragmatic Play
+                - listitem [ref=e424]:
+                  - text: "Entry:"
+                  - generic [ref=e425]: FREE
+              - generic [ref=e426]:
+                - generic [ref=e427] [cursor=pointer]: Close
+                - link "Play" [ref=e428] [cursor=pointer]:
+                  - /url: https://casino.guru/tournaments/monthly-227-candy-rush
+        - generic [ref=e430]:
+          - generic [ref=e432]:
+            - generic [ref=e433]: Weekly tournament
+            - generic [ref=e434]:
+              - img "Caishen’s Cash Pots_tournie_logo" [ref=e437]
+              - img "aztec_smash_tournie_logo-Recovered" [ref=e440]
+              - generic [ref=e441]:
+                - img
+                - generic [ref=e442]: 02:08:17
+            - generic [ref=e443]:
+              - generic [ref=e444]:
+                - generic [ref=e445]: Caishen's Cash Pots
+                - generic [ref=e446]: by Pragmatic Play
+              - generic [ref=e448]:
+                - text: $100
+                - img "tournament-coins" [ref=e449]
+              - generic [ref=e450]:
+                - generic [ref=e451] [cursor=pointer]: More info
+                - link "Play" [ref=e452] [cursor=pointer]:
+                  - /url: https://casino.guru/tournaments/weekly-230-caishens-cash-pots
+          - generic [ref=e454]:
+            - generic [ref=e455]: Weekly tournament
+            - generic [ref=e456]:
+              - generic [ref=e457]: Prize pool
+              - generic [ref=e458]: $100
+              - list [ref=e459]:
+                - listitem [ref=e460]:
+                  - generic [ref=e461]: "1"
+                  - generic [ref=e462]: $50
+                - listitem [ref=e463]:
+                  - generic [ref=e464]: "2"
+                  - generic [ref=e465]: $30
+                - listitem [ref=e466]:
+                  - generic [ref=e467]: "3"
+                  - generic [ref=e468]: $20
+              - generic [ref=e469]: Other information
+              - list [ref=e470]:
+                - listitem [ref=e471]:
+                  - text: "Total free spins:"
+                  - generic [ref=e472]: "250"
+                - listitem [ref=e473]:
+                  - text: "Game Provider:"
+                  - generic [ref=e474]: Pragmatic Play
+                - listitem [ref=e475]:
+                  - text: "Entry:"
+                  - generic [ref=e476]: FREE
+              - generic [ref=e477]:
+                - generic [ref=e478] [cursor=pointer]: Close
+                - link "Play" [ref=e479] [cursor=pointer]:
+                  - /url: https://casino.guru/tournaments/weekly-230-caishens-cash-pots
+        - generic [ref=e481]:
+          - generic [ref=e483]:
+            - generic [ref=e484]: Weekly tournament
+            - generic [ref=e485]:
+              - img "BEAR_crazy_slot_bg" [ref=e488]
+              - img "bear_crazy_slot_logo" [ref=e491]
+              - generic [ref=e492]:
+                - img
+                - generic [ref=e493]: 06:08:17
+            - generic [ref=e494]:
+              - generic [ref=e495]:
+                - generic [ref=e496]: Bear Crazy
+                - generic [ref=e497]: by Pragmatic Play
+              - generic [ref=e499]:
+                - text: $100
+                - img "tournament-coins" [ref=e500]
+              - generic [ref=e501]:
+                - generic [ref=e502] [cursor=pointer]: More info
+                - link "Play" [ref=e503] [cursor=pointer]:
+                  - /url: https://casino.guru/tournaments/weekly-234-bear-crazy
+          - generic [ref=e505]:
+            - generic [ref=e506]: Weekly tournament
+            - generic [ref=e507]:
+              - generic [ref=e508]: Prize pool
+              - generic [ref=e509]: $100
+              - list [ref=e510]:
+                - listitem [ref=e511]:
+                  - generic [ref=e512]: "1"
+                  - generic [ref=e513]: $50
+                - listitem [ref=e514]:
+                  - generic [ref=e515]: "2"
+                  - generic [ref=e516]: $30
+                - listitem [ref=e517]:
+                  - generic [ref=e518]: "3"
+                  - generic [ref=e519]: $20
+              - generic [ref=e520]: Other information
+              - list [ref=e521]:
+                - listitem [ref=e522]:
+                  - text: "Total free spins:"
+                  - generic [ref=e523]: "250"
+                - listitem [ref=e524]:
+                  - text: "Game Provider:"
+                  - generic [ref=e525]: Pragmatic Play
+                - listitem [ref=e526]:
+                  - text: "Entry:"
+                  - generic [ref=e527]: FREE
+              - generic [ref=e528]:
+                - generic [ref=e529] [cursor=pointer]: Close
+                - link "Play" [ref=e530] [cursor=pointer]:
+                  - /url: https://casino.guru/tournaments/weekly-234-bear-crazy
+    - generic [ref=e531]:
+      - generic [ref=e532]:
+        - generic [ref=e534]:
+          - img
+          - text: Similar games to Slot Machine
+        - generic [ref=e536]:
+          - generic [ref=e538]:
+            - generic [ref=e539]:
+              - generic [ref=e540]:
+                - link "Mask Singer" [ref=e541] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/mask-singer-slot-play-free
+                  - img "Mask Singer" [ref=e542]
+                - generic [ref=e543]: Play for Free
+                - generic [ref=e544]: Loading preview...
+              - link "Mask Singer by MGA" [ref=e546] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/mask-singer-slot-play-free
+            - generic [ref=e547]:
+              - generic [ref=e548]:
+                - link "Fruits on Ice Collection - 20 Lines" [ref=e549] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/fruits-on-ice-collection---20-lines-slot-play-free
+                  - img "Fruits on Ice Collection - 20 Lines" [ref=e550]
+                - generic [ref=e551]: Play for Free
+                - generic [ref=e552]: Loading preview...
+              - link "Fruits on Ice Collection - 20 Lines by Spinomenal" [ref=e554] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/fruits-on-ice-collection---20-lines-slot-play-free
+            - generic [ref=e555]:
+              - generic [ref=e556]:
+                - link "Jungle Falls" [ref=e557] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/jungle-falls-slot-play-free
+                  - img "Jungle Falls" [ref=e558]
+                - generic [ref=e559]: Play for Free
+                - generic [ref=e560]: Loading preview...
+              - link "Jungle Falls by Inspired Gaming" [ref=e562] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/jungle-falls-slot-play-free
+            - generic [ref=e563]:
+              - generic [ref=e564]:
+                - link "Show Master" [ref=e565] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/show-master-slot-play-free
+                  - img "Show Master" [ref=e566]
+                - generic [ref=e567]: Play for Free
+                - generic [ref=e568]: Loading preview...
+              - link "Show Master by Booming Games" [ref=e570] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/show-master-slot-play-free
+            - generic [ref=e571]:
+              - generic [ref=e572]:
+                - link "Crazy 777" [ref=e573] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/crazy-777-slot-play-free
+                  - img "Crazy 777" [ref=e574]
+                - generic [ref=e575]: Play for Free
+                - generic [ref=e576]: Loading preview...
+              - link "Crazy 777 by TaDa Gaming" [ref=e578] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/crazy-777-slot-play-free
+            - generic [ref=e579]:
+              - generic [ref=e580]:
+                - link [ref=e581] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/lucky-streak-2-slot-play-free
+                  - img [ref=e582]
+                - generic [ref=e583]: Play for Free
+                - generic [ref=e584]: Loading preview...
+              - link [ref=e586] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/lucky-streak-2-slot-play-free
+                - text: Lucky Streak 2 by Endorphina
+            - generic [ref=e587]:
+              - generic [ref=e588]:
+                - link [ref=e589] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/dragon-sevens-slot-play-free
+                  - img [ref=e590]
+                - generic [ref=e591]: Play for Free
+                - generic [ref=e592]: Loading preview...
+              - link [ref=e594] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/dragon-sevens-slot-play-free
+                - text: Dragon Sevens by Netgame
+            - generic [ref=e595]:
+              - generic [ref=e596]:
+                - link [ref=e597] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/snow-queen-slot-play-free
+                  - img [ref=e598]
+                - generic [ref=e599]: Play for Free
+                - generic [ref=e600]: Loading preview...
+              - link [ref=e602] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/snow-queen-slot-play-free
+                - text: Snow Queen by CQ9 Gaming
+            - generic [ref=e603]:
+              - generic [ref=e604]:
+                - link [ref=e605] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/coin-volcano-slot-play-free
+                  - img [ref=e606]
+                - generic [ref=e607]: Play for Free
+                - generic [ref=e608]: Loading preview...
+              - link [ref=e610] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/coin-volcano-slot-play-free
+                - text: Coin Volcano by 3 Oaks Gaming
+            - generic [ref=e611]:
+              - generic [ref=e612]:
+                - link [ref=e613] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/Fruit-Bonanza-slot-play-free
+                  - img [ref=e614]
+                - generic [ref=e615]: Play for Free
+                - generic [ref=e616]: Loading preview...
+              - link [ref=e618] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/Fruit-Bonanza-slot-play-free
+                - text: Fruit Bonanza by Play'n GO
+            - generic [ref=e619]:
+              - generic [ref=e620]:
+                - link [ref=e621] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/magnum-opus-slot-play-free
+                  - img [ref=e622]
+                - generic [ref=e623]: Play for Free
+                - generic [ref=e624]: Loading preview...
+              - link [ref=e626] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/magnum-opus-slot-play-free
+                - text: Magnum Opus by Endorphina
+            - generic [ref=e627]:
+              - generic [ref=e628]:
+                - link [ref=e629] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/pong-pong-hu-slot-play-free
+                  - img [ref=e630]
+                - generic [ref=e631]: Play for Free
+                - generic [ref=e632]: Loading preview...
+              - link [ref=e634] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/pong-pong-hu-slot-play-free
+                - text: Pong Pong Hu by Fa Chai Gaming
+            - generic [ref=e635]:
+              - generic [ref=e636]:
+                - link [ref=e637] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/cluster-mania-slot-play-free
+                  - img [ref=e638]
+                - generic [ref=e639]: Play for Free
+                - generic [ref=e640]: Loading preview...
+              - link [ref=e642] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/cluster-mania-slot-play-free
+                - text: Cluster Mania by EURASIAN (EA) Gaming
+            - generic [ref=e643]:
+              - generic [ref=e644]:
+                - link [ref=e645] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/hottest-fruits-20-fixed-lines-slot-play-free
+                  - img [ref=e646]
+                - generic [ref=e647]: Play for Free
+                - generic [ref=e648]: Loading preview...
+              - link [ref=e650] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/hottest-fruits-20-fixed-lines-slot-play-free
+                - text: Hottest Fruits 20 Fixed Lines by Amatic
+            - generic [ref=e651]:
+              - generic [ref=e652]:
+                - link [ref=e653] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/honey-hive-xl-slot-play-free
+                  - img [ref=e654]
+                - generic [ref=e655]: Play for Free
+                - generic [ref=e656]: Loading preview...
+              - link [ref=e658] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/honey-hive-xl-slot-play-free
+                - text: Honey Hive XL by Rival
+            - generic [ref=e659]:
+              - generic [ref=e660]:
+                - link [ref=e661] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/star-diamonds-slot-play-free
+                  - img [ref=e662]
+                - generic [ref=e663]: Play for Free
+                - generic [ref=e664]: Loading preview...
+              - link [ref=e666] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/star-diamonds-slot-play-free
+                - text: Star Diamonds by FlipLuck Games
+            - generic [ref=e667]:
+              - generic [ref=e668]:
+                - link [ref=e669] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/10-glossy-hot-slot-play-free
+                  - img [ref=e670]
+                - generic [ref=e671]: Play for Free
+                - generic [ref=e672]: Loading preview...
+              - link [ref=e674] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/10-glossy-hot-slot-play-free
+                - text: 10 Glossy Hot by Amusnet
+            - generic [ref=e675]:
+              - generic [ref=e676]:
+                - link [ref=e677] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/honey-money-slot-play-free
+                  - img [ref=e678]
+                - generic [ref=e679]: Play for Free
+                - generic [ref=e680]: Loading preview...
+              - link [ref=e682] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/honey-money-slot-play-free
+                - text: Honey Money by Ka Gaming
+            - generic [ref=e683]:
+              - generic [ref=e684]:
+                - link [ref=e685] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/giga-hot-40-free-spins-slot-play-free
+                  - img [ref=e686]
+                - generic [ref=e687]: Play for Free
+                - generic [ref=e688]: Loading preview...
+              - link [ref=e690] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/giga-hot-40-free-spins-slot-play-free
+                - text: Giga Hot 40 Free Spins by Fazi
+            - generic [ref=e691]:
+              - generic [ref=e692]:
+                - link [ref=e693] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/jack-potter-halloween-slot-play-free
+                  - img [ref=e694]
+                - generic [ref=e695]: Play for Free
+                - generic [ref=e696]: Loading preview...
+              - link [ref=e698] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/jack-potter-halloween-slot-play-free
+                - text: Jack Potter Halloween by Onlyplay
+          - button "Previous" [ref=e699] [cursor=pointer]:
+            - img "Previous"
+          - button "Next" [ref=e700] [cursor=pointer]:
+            - img "Next"
+          - generic [ref=e701]:
+            - button "View slide 1" [ref=e702] [cursor=pointer]
+            - button "View slide 2" [ref=e703] [cursor=pointer]
+            - button "View slide 3" [ref=e704] [cursor=pointer]
+            - button "View slide 4" [ref=e705] [cursor=pointer]
+      - generic [ref=e706]:
+        - generic [ref=e708]:
+          - img
+          - text: More games from BGaming
+        - generic [ref=e710]:
+          - generic [ref=e712]:
+            - generic [ref=e713]:
+              - generic [ref=e714]:
+                - link "Grand Buffalo Hold & Win" [ref=e715] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/grand-buffalo-hold---win-slot-play-free
+                  - img "Grand Buffalo Hold & Win" [ref=e716]
+                - generic [ref=e717]: Play for Free
+                - generic [ref=e718]: Loading preview...
+              - link "Grand Buffalo Hold & Win by BGaming" [ref=e720] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/grand-buffalo-hold---win-slot-play-free
+            - generic [ref=e721]:
+              - generic [ref=e722]:
+                - link "Bonanza Billion Xtreme" [ref=e723] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/bonanza-billion-xtreme-slot-play-free
+                  - img "Bonanza Billion Xtreme" [ref=e724]
+                - generic [ref=e725]: Play for Free
+                - generic [ref=e726]: Loading preview...
+              - link "Bonanza Billion Xtreme by BGaming" [ref=e728] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/bonanza-billion-xtreme-slot-play-free
+            - generic [ref=e729]:
+              - generic [ref=e730]:
+                - link "Zeus Goes Wild" [ref=e731] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/zeus-goes-wild-slot-play-free
+                  - img "Zeus Goes Wild" [ref=e732]
+                - generic [ref=e733]: Play for Free
+                - generic [ref=e734]: Loading preview...
+              - link "Zeus Goes Wild by BGaming" [ref=e736] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/zeus-goes-wild-slot-play-free
+            - generic [ref=e737]:
+              - generic [ref=e738]:
+                - link "Totally Hot" [ref=e739] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/totally-hot-slot-play-free
+                  - img "Totally Hot" [ref=e740]
+                - generic [ref=e741]: Play for Free
+                - generic [ref=e742]: Loading preview...
+              - link "Totally Hot by BGaming" [ref=e744] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/totally-hot-slot-play-free
+            - generic [ref=e745]:
+              - generic [ref=e746]:
+                - link "Panda Fortune Rush" [ref=e747] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/panda-fortune-rush-slot-play-free
+                  - img "Panda Fortune Rush" [ref=e748]
+                - generic [ref=e749]: Play for Free
+                - generic [ref=e750]: Loading preview...
+              - link "Panda Fortune Rush by BGaming" [ref=e752] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/panda-fortune-rush-slot-play-free
+            - generic [ref=e753]:
+              - generic [ref=e754]:
+                - link [ref=e755] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/joker-x-love-slot-play-free
+                  - img [ref=e756]
+                - generic [ref=e757]: Play for Free
+                - generic [ref=e758]: Loading preview...
+              - link [ref=e760] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/joker-x-love-slot-play-free
+                - text: Joker X Love by BGaming
+            - generic [ref=e761]:
+              - generic [ref=e762]:
+                - link [ref=e763] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/winter-trophy-hold-and-win-slot-play-free
+                  - img [ref=e764]
+                - generic [ref=e765]: Play for Free
+                - generic [ref=e766]: Loading preview...
+              - link [ref=e768] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/winter-trophy-hold-and-win-slot-play-free
+                - text: Winter Trophy Hold and Win by BGaming
+            - generic [ref=e769]:
+              - generic [ref=e770]:
+                - link [ref=e771] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/always-up--x10000-slot-play-free
+                  - img [ref=e772]
+                - generic [ref=e773]: Play for Free
+                - generic [ref=e774]: Loading preview...
+              - link [ref=e776] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/always-up--x10000-slot-play-free
+                - text: Always Up! x10000 by BGaming
+            - generic [ref=e777]:
+              - generic [ref=e778]:
+                - link [ref=e779] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/aztec-magic-bonanza-slot-play-free
+                  - img [ref=e780]
+                - generic [ref=e781]: Play for Free
+                - generic [ref=e782]: Loading preview...
+              - link [ref=e784] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/aztec-magic-bonanza-slot-play-free
+                - text: Aztec Magic Bonanza by BGaming
+            - generic [ref=e785]:
+              - generic [ref=e786]:
+                - link [ref=e787] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/golden-paw-hold---win-slot-play-free
+                  - img [ref=e788]
+                - generic [ref=e789]: Play for Free
+                - generic [ref=e790]: Loading preview...
+              - link [ref=e792] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/golden-paw-hold---win-slot-play-free
+                - text: Golden Paw Hold & Win by BGaming
+            - generic [ref=e793]:
+              - generic [ref=e794]:
+                - link [ref=e795] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/kraken-s-hunger-slot-play-free
+                  - img [ref=e796]
+                - generic [ref=e797]: Play for Free
+                - generic [ref=e798]: Loading preview...
+              - link [ref=e800] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/kraken-s-hunger-slot-play-free
+                - text: Kraken’s Hunger by BGaming
+            - generic [ref=e801]:
+              - generic [ref=e802]:
+                - link [ref=e803] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/crash-games/fortune-red-packets-play-free
+                  - img [ref=e804]
+                - generic [ref=e805]: Play for Free
+                - generic [ref=e806]: Loading preview...
+              - link [ref=e808] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/crash-games/fortune-red-packets-play-free
+                - text: Fortune Red Packets by BGaming
+            - generic [ref=e809]:
+              - generic [ref=e810]:
+                - link [ref=e811] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/heart-of-tiki-slot-play-free
+                  - img [ref=e812]
+                - generic [ref=e813]: Play for Free
+                - generic [ref=e814]: Loading preview...
+              - link [ref=e816] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/heart-of-tiki-slot-play-free
+                - text: Heart of Tiki by BGaming
+            - generic [ref=e817]:
+              - generic [ref=e818]:
+                - link [ref=e819] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/lucky-turkey-slot-play-free
+                  - img [ref=e820]
+                - generic [ref=e821]: Play for Free
+                - generic [ref=e822]: Loading preview...
+              - link [ref=e824] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/lucky-turkey-slot-play-free
+                - text: Lucky Turkey by BGaming
+            - generic [ref=e825]:
+              - generic [ref=e826]:
+                - link [ref=e827] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/blackjack/surrender-multihand-blackjack-play-free
+                  - img [ref=e828]
+                - generic [ref=e829]: Play for Free
+                - generic [ref=e830]: Loading preview...
+              - link [ref=e832] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/blackjack/surrender-multihand-blackjack-play-free
+                - text: Surrender Multihand Blackjack by BGaming
+            - generic [ref=e833]:
+              - generic [ref=e834]:
+                - link [ref=e835] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/always-up--slot-play-free
+                  - img [ref=e836]
+                - generic [ref=e837]: Play for Free
+                - generic [ref=e838]: Loading preview...
+              - link [ref=e840] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/always-up--slot-play-free
+                - text: Always Up! by BGaming
+            - generic [ref=e841]:
+              - generic [ref=e842]:
+                - link [ref=e843] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/clucking-hell-slot-play-free
+                  - img [ref=e844]
+                - generic [ref=e845]: Play for Free
+                - generic [ref=e846]: Loading preview...
+              - link [ref=e848] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/clucking-hell-slot-play-free
+                - text: Clucking Hell by BGaming
+            - generic [ref=e849]:
+              - generic [ref=e850]:
+                - link [ref=e851] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/wild-tiger-2-slot-play-free
+                  - img [ref=e852]
+                - generic [ref=e853]: Play for Free
+                - generic [ref=e854]: Loading preview...
+              - link [ref=e856] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/wild-tiger-2-slot-play-free
+                - text: Wild Tiger 2 by BGaming
+            - generic [ref=e857]:
+              - generic [ref=e858]:
+                - link [ref=e859] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/alchemy-academy-slot-play-free
+                  - img [ref=e860]
+                - generic [ref=e861]: Play for Free
+                - generic [ref=e862]: Loading preview...
+              - link [ref=e864] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/alchemy-academy-slot-play-free
+                - text: Alchemy Academy by BGaming
+            - generic [ref=e865]:
+              - generic [ref=e866]:
+                - link [ref=e867] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/burning-chilli-243-slot-play-free
+                  - img [ref=e868]
+                - generic [ref=e869]: Play for Free
+                - generic [ref=e870]: Loading preview...
+              - link [ref=e872] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/burning-chilli-243-slot-play-free
+                - text: Burning Chilli 243 by BGaming
+            - generic [ref=e873]:
+              - generic [ref=e874]:
+                - link [ref=e875] [cursor=pointer]:
+                  - /url: https://casino.guru/free-casino-games/slots/yommi-rush-slot-play-free
+                  - img [ref=e876]
+                - generic [ref=e877]: Play for Free
+                - generic [ref=e878]: Loading preview...
+              - link [ref=e880] [cursor=pointer]:
+                - /url: https://casino.guru/free-casino-games/slots/yommi-rush-slot-play-free
+                - text: Yommi Rush by BGaming
+          - button "Previous" [ref=e881] [cursor=pointer]:
+            - img "Previous"
+          - button "Next" [ref=e882] [cursor=pointer]:
+            - img "Next"
+          - generic [ref=e883]:
+            - button "View slide 1" [ref=e884] [cursor=pointer]
+            - button "View slide 2" [ref=e885] [cursor=pointer]
+            - button "View slide 3" [ref=e886] [cursor=pointer]
+            - button "View slide 4" [ref=e887] [cursor=pointer]
+            - button "View slide 5" [ref=e888] [cursor=pointer]
+  - generic [ref=e890]:
+    - generic [ref=e891]:
+      - img
+      - generic [ref=e892]: Top real money casinos with Slot Machine
+    - generic [ref=e894]:
+      - link "SpinBetter Casino Logo" [ref=e896] [cursor=pointer]:
+        - /url: /exit?casinoId=2983&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=1
+        - img "SpinBetter Casino Logo" [ref=e898]
+      - strong [ref=e900] [cursor=pointer]:
+        - generic [ref=e901]: Safety Index
+        - generic [ref=e902]: "8.7"
+        - generic [ref=e904]: High
+      - generic [ref=e905]:
+        - link "SpinBetter Casino" [ref=e906] [cursor=pointer]:
+          - /url: /exit?casinoId=2983&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=1
+        - generic [ref=e908]:
+          - strong [ref=e909]:
+            - text: "Bonus:"
+            - link "100% up to €300 and 30 extra spins" [ref=e910] [cursor=pointer]:
+              - /url: /exit?casinoId=2983&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=1
+          - button "*T&Cs apply" [ref=e911] [cursor=pointer]:
+            - link:
+              - /url: /exit?casinoId=2983&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=1
+            - generic [ref=e912]: "*T&Cs apply"
+      - generic [ref=e913]:
+        - generic [ref=e915] [cursor=pointer]:
+          - img
+          - generic [ref=e916]: Quick info
+        - link "Play in Casino" [ref=e918] [cursor=pointer]:
+          - /url: /exit?casinoId=2983&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=1
+          - img
+          - generic [ref=e919]: Play in Casino
+    - generic [ref=e921]:
+      - link "Megapari Casino Logo" [ref=e923] [cursor=pointer]:
+        - /url: /exit?casinoId=2834&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=2
+        - img "Megapari Casino Logo" [ref=e925]
+      - strong [ref=e927] [cursor=pointer]:
+        - generic [ref=e928]: Safety Index
+        - generic [ref=e929]: "8.8"
+        - generic [ref=e931]: High
+      - generic [ref=e932]:
+        - link "Megapari Casino" [ref=e933] [cursor=pointer]:
+          - /url: /exit?casinoId=2834&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=2
+        - generic [ref=e935]:
+          - strong [ref=e936]:
+            - text: "Bonus:"
+            - link "100% up to $530 and 50 extra spins" [ref=e937] [cursor=pointer]:
+              - /url: /exit?casinoId=2834&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=2
+          - button "*T&Cs apply" [ref=e938] [cursor=pointer]:
+            - link:
+              - /url: /exit?casinoId=2834&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=2
+            - generic [ref=e939]: "*T&Cs apply"
+      - generic [ref=e940]:
+        - generic [ref=e942] [cursor=pointer]:
+          - img
+          - generic [ref=e943]: Quick info
+        - link "Play in Casino" [ref=e945] [cursor=pointer]:
+          - /url: /exit?casinoId=2834&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=2
+          - img
+          - generic [ref=e946]: Play in Casino
+    - generic [ref=e948]:
+      - link "Bitsler Casino Logo" [ref=e950] [cursor=pointer]:
+        - /url: /exit?casinoId=561&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=3
+        - img "Bitsler Casino Logo" [ref=e952]
+      - strong [ref=e954] [cursor=pointer]:
+        - generic [ref=e955]: Safety Index
+        - generic [ref=e956]: "8.7"
+        - generic [ref=e958]: High
+      - generic [ref=e959]:
+        - link "Bitsler Casino" [ref=e960] [cursor=pointer]:
+          - /url: /exit?casinoId=561&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=3
+        - generic [ref=e962]:
+          - strong [ref=e963]:
+            - text: "Bonus:"
+            - link "200% up to $2,000 and 500 extra spins" [ref=e964] [cursor=pointer]:
+              - /url: /exit?casinoId=561&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=3
+          - button "*T&Cs apply" [ref=e965] [cursor=pointer]:
+            - link:
+              - /url: /exit?casinoId=561&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=3
+            - generic [ref=e966]: "*T&Cs apply"
+      - generic [ref=e967]:
+        - generic [ref=e969] [cursor=pointer]:
+          - img
+          - generic [ref=e970]: Quick info
+        - link "Play in Casino" [ref=e972] [cursor=pointer]:
+          - /url: /exit?casinoId=561&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=casino-list&pageType=17&listPosition=3
+          - img
+          - generic [ref=e973]: Play in Casino
+    - link "Show more BGaming casinos" [ref=e975] [cursor=pointer]:
+      - /url: https://casino.guru/top-online-casinos/bgaming-games
+  - generic [ref=e978]:
+    - generic [ref=e980]:
+      - img
+      - generic [ref=e981]: Slot Machine bonuses and free spins
+    - generic [ref=e982]:
+      - generic [ref=e984]:
+        - generic [ref=e986]:
+          - img "America777 Casino Logo" [ref=e989]
+          - generic [ref=e991]:
+            - generic [ref=e992]: 30 FREE SPINS on multiple games
+            - generic [ref=e994]: America777 Casino
+            - generic [ref=e995] [cursor=pointer]:
+              - img
+          - generic [ref=e996]:
+            - link "Info" [ref=e997] [cursor=pointer]:
+              - /url: https://casino.guru/america777-casino-review#tab=js-tab-bonuses
+              - generic [ref=e998]: Info
+            - generic [ref=e1001] [cursor=pointer]: "*T&Cs apply"
+            - link "Claim" [ref=e1002] [cursor=pointer]:
+              - /url: /exitb?dealId=37909&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=game-detail&pageType=17&listPosition=2
+              - generic [ref=e1003]: Claim
+        - generic [ref=e1005]:
+          - img "Brasil777 Casino Logo" [ref=e1008]
+          - generic [ref=e1010]:
+            - generic [ref=e1011]: 30 FREE SPINS on multiple games
+            - generic [ref=e1013]: Brasil777 Casino
+            - generic [ref=e1014] [cursor=pointer]:
+              - img
+          - generic [ref=e1015]:
+            - link "Info" [ref=e1016] [cursor=pointer]:
+              - /url: https://casino.guru/brasil777-casino-review#tab=js-tab-bonuses
+              - generic [ref=e1017]: Info
+            - generic [ref=e1020] [cursor=pointer]: "*T&Cs apply"
+            - link "Claim" [ref=e1021] [cursor=pointer]:
+              - /url: /exitb?dealId=52717&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=game-detail&pageType=17&listPosition=3
+              - generic [ref=e1022]: Claim
+        - generic [ref=e1024]:
+          - img "America777 Casino Logo" [ref=e1027]
+          - generic [ref=e1029]:
+            - generic [ref=e1030]: 300% up to $1,000 and 100 extra spins
+            - generic [ref=e1032]: America777 Casino
+            - generic [ref=e1033] [cursor=pointer]:
+              - img
+          - generic [ref=e1034]:
+            - link "Info" [ref=e1035] [cursor=pointer]:
+              - /url: https://casino.guru/america777-casino-review#tab=js-tab-bonuses
+              - generic [ref=e1036]: Info
+            - generic [ref=e1039] [cursor=pointer]: "*T&Cs apply"
+            - link "Claim" [ref=e1040] [cursor=pointer]:
+              - /url: /exitb?dealId=40516&domainLanguageId=2&preferredLanguagesStr=34,2&tosLinkRequired=false&userCountryId=102&listName=game-detail&pageType=17&listPosition=4
+              - generic [ref=e1041]: Claim
+        - generic [ref=e1043]:
+          - img [ref=e1046]
+          - generic [ref=e1048]:
+            - generic [ref=e1049]: 100% up to €150 and 150 extra spins
+            - generic [ref=e1051]: Lazybar Casino
+            - generic [ref=e1052] [cursor=pointer]:
+              - img
+          - link [ref=e1054] [cursor=pointer]:
+            - /url: https://casino.guru/lazybar-casino-review#tab=js-tab-bonuses
+            - generic [ref=e1055]: Info
+        - generic [ref=e1057]:
+          - img [ref=e1060]
+          - generic [ref=e1062]:
+            - generic [ref=e1063]: 55% up to €150 and 100 extra spins
+            - generic [ref=e1065]: Lazybar Casino
+            - generic [ref=e1066] [cursor=pointer]:
+              - img
+          - link [ref=e1068] [cursor=pointer]:
+            - /url: https://casino.guru/lazybar-casino-review#tab=js-tab-bonuses
+            - generic [ref=e1069]: Info
+        - generic [ref=e1071]:
+          - img [ref=e1074]
+          - generic [ref=e1076]:
+            - generic [ref=e1077]: Up to 100 EXTRA SPINS on BGaming
+            - generic [ref=e1079]: Godbunny Casino
+            - generic [ref=e1080] [cursor=pointer]:
+              - img
+          - link [ref=e1082] [cursor=pointer]:
+            - /url: https://casino.guru/godbunny-casino-review#tab=js-tab-bonuses
+            - generic [ref=e1083]: Info
+      - button "Previous" [ref=e1084] [cursor=pointer]:
+        - img "Previous"
+      - button "Next" [ref=e1085] [cursor=pointer]:
+        - img "Next"
+      - generic [ref=e1086]:
+        - button "View slide 1" [ref=e1087] [cursor=pointer]
+        - button "View slide 2" [ref=e1088] [cursor=pointer]
+  - generic [ref=e1089]:
+    - heading "Slot Machine - general discussion" [level=2] [ref=e1090]
+    - paragraph [ref=e1092]: Discuss anything related to Slot Machine with other players, share your opinion, or get answers to your questions.
+  - generic [ref=e1094]:
+    - generic [ref=e1095]:
+      - link "Slot Machine Demo ▶ Play Free Slot Game" [ref=e1096] [cursor=pointer]:
+        - /url: https://casino.guru/
+        - img "Slot Machine Demo ▶ Play Free Slot Game" [ref=e1097]
+      - generic [ref=e1099]:
+        - generic [ref=e1100]: Follow us
+        - generic [ref=e1101]:
+          - link "Facebook" [ref=e1102] [cursor=pointer]:
+            - /url: https://www.facebook.com/profile.php?id=61558301061001
+            - img
+          - link "Twitter" [ref=e1103] [cursor=pointer]:
+            - /url: https://twitter.com/CasinoGuruTweet
+            - img
+          - link "Instagram" [ref=e1104] [cursor=pointer]:
+            - /url: https://www.instagram.com/igamingguru
+            - img
+          - link "LinkedIn" [ref=e1105] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/casinoguru/
+            - img
+          - link "YouTube" [ref=e1106] [cursor=pointer]:
+            - /url: https://www.youtube.com/c/CasinoGuruTube
+            - img
+      - generic [ref=e1107]:
+        - generic [ref=e1108]: Top pages
+        - list [ref=e1109]:
+          - listitem [ref=e1110]:
+            - link "PayPal casinos" [ref=e1111] [cursor=pointer]:
+              - /url: https://casino.guru/top-online-casinos/PayPal-payments
+              - img
+              - generic [ref=e1112]: PayPal casinos
+          - listitem [ref=e1113]:
+            - link "Rapid Transfer casinos" [ref=e1114] [cursor=pointer]:
+              - /url: https://casino.guru/top-online-casinos/rapid-transfer-payments
+              - img
+              - generic [ref=e1115]: Rapid Transfer casinos
+          - listitem [ref=e1116]:
+            - link "Revolut casinos" [ref=e1117] [cursor=pointer]:
+              - /url: https://casino.guru/top-online-casinos/revolut-payments
+              - img
+              - generic [ref=e1118]: Revolut casinos
+          - listitem [ref=e1119]:
+            - link "Casinos with blackjack" [ref=e1120] [cursor=pointer]:
+              - /url: https://casino.guru/best-blackjack-sites
+              - img
+              - generic [ref=e1121]: Casinos with blackjack
+          - listitem [ref=e1122]:
+            - link "Casinos with craps" [ref=e1123] [cursor=pointer]:
+              - /url: https://casino.guru/best-craps-sites
+              - img
+              - generic [ref=e1124]: Casinos with craps
+      - generic [ref=e1125]:
+        - generic [ref=e1126]: Trending pages
+        - list [ref=e1127]:
+          - listitem [ref=e1128]:
+            - link "Pay by Phone casinos" [ref=e1129] [cursor=pointer]:
+              - /url: https://casino.guru/top-online-casinos/paybyphone-payments
+              - img
+              - generic [ref=e1130]: Pay by Phone casinos
+          - listitem [ref=e1131]:
+            - link "Mastercard casinos" [ref=e1132] [cursor=pointer]:
+              - /url: https://casino.guru/top-online-casinos/mastercard-payments
+              - img
+              - generic [ref=e1133]: Mastercard casinos
+          - listitem [ref=e1134]:
+            - link "POLi casinos" [ref=e1135] [cursor=pointer]:
+              - /url: https://casino.guru/top-online-casinos/poli-payments
+              - img
+              - generic [ref=e1136]: POLi casinos
+          - listitem [ref=e1137]:
+            - link "Neosurf casinos" [ref=e1138] [cursor=pointer]:
+              - /url: https://casino.guru/top-online-casinos/neosurf-payments
+              - img
+              - generic [ref=e1139]: Neosurf casinos
+      - generic [ref=e1140]:
+        - generic [ref=e1141]: Casino Guru
+        - list [ref=e1142]:
+          - listitem [ref=e1143]:
+            - link "Online Casinos" [ref=e1144] [cursor=pointer]:
+              - /url: https://casino.guru/top-online-casinos
+              - img
+              - generic [ref=e1145]: Online Casinos
+          - listitem [ref=e1146]:
+            - link "Games" [ref=e1147] [cursor=pointer]:
+              - /url: https://casino.guru/free-casino-games
+              - img
+              - generic [ref=e1148]: Games
+          - listitem [ref=e1149]:
+            - link "Bonuses" [ref=e1150] [cursor=pointer]:
+              - /url: https://casino.guru/online-casino-bonuses
+              - img
+              - generic [ref=e1151]: Bonuses
+          - listitem [ref=e1152]:
+            - link "No Deposit Bonuses" [ref=e1153] [cursor=pointer]:
+              - /url: https://casino.guru/no-deposit-bonuses-casino
+              - img
+              - generic [ref=e1154]: No Deposit Bonuses
+          - listitem [ref=e1155]:
+            - link "Complaints" [ref=e1156] [cursor=pointer]:
+              - /url: https://casino.guru/complaints/all
+              - img
+              - generic [ref=e1157]: Complaints
+          - listitem [ref=e1158]:
+            - link "Forum" [ref=e1159] [cursor=pointer]:
+              - /url: https://casino.guru/forum
+              - img
+              - generic [ref=e1160]: Forum
+          - listitem [ref=e1161]:
+            - link "Reviews" [ref=e1162] [cursor=pointer]:
+              - /url: https://casino.guru/casino-reviews
+              - img
+              - generic [ref=e1163]: Reviews
+          - listitem [ref=e1164]:
+            - link "ZOOMin" [ref=e1165] [cursor=pointer]:
+              - /url: https://casino.guru/zoomin
+              - img
+              - generic [ref=e1166]: ZOOMin
+          - listitem [ref=e1167]:
+            - link "News" [ref=e1168] [cursor=pointer]:
+              - /url: https://casino.guru/news
+              - img
+              - generic [ref=e1169]: News
+          - listitem [ref=e1170]:
+            - link "Casino Guru Awards" [ref=e1171] [cursor=pointer]:
+              - /url: https://casino.guru/awards
+              - img
+              - generic [ref=e1172]: Casino Guru Awards
+      - generic [ref=e1173]:
+        - generic [ref=e1174]: About us
+        - list [ref=e1175]:
+          - listitem [ref=e1176]:
+            - link "About us" [ref=e1177] [cursor=pointer]:
+              - /url: https://casino.guru/about-us
+              - img
+              - generic [ref=e1178]: About us
+          - listitem [ref=e1179]:
+            - link "History" [ref=e1180] [cursor=pointer]:
+              - /url: https://casino.guru/about-us#history
+              - img
+              - generic [ref=e1181]: History
+          - listitem [ref=e1182]:
+            - link "Team" [ref=e1183] [cursor=pointer]:
+              - /url: https://casino.guru/about-us#team
+              - img
+              - generic [ref=e1184]: Team
+          - listitem [ref=e1185]:
+            - link "Contact" [ref=e1186] [cursor=pointer]:
+              - /url: https://casino.guru/contact-us
+              - img
+              - generic [ref=e1187]: Contact
+          - listitem [ref=e1188]:
+            - link "Terms of use" [ref=e1189] [cursor=pointer]:
+              - /url: https://casino.guru/terms-and-conditions
+              - img
+              - generic [ref=e1190]: Terms of use
+          - listitem [ref=e1191]:
+            - link "Sitemap" [ref=e1192] [cursor=pointer]:
+              - /url: https://casino.guru/sitemap
+              - generic [ref=e1193]:
+                - img
+              - generic [ref=e1194]: Sitemap
+      - generic [ref=e1195]:
+        - link "Casino Guru Academy null Free professional educational courses for online casino employees aimed at industry best practices, improving player experience, and fair approach to gambling." [ref=e1196] [cursor=pointer]:
+          - /url: https://Casino.Guru/academy
+          - generic [ref=e1197]: Casino Guru Academy
+          - img "null" [ref=e1199]
+          - paragraph [ref=e1200]: Free professional educational courses for online casino employees aimed at industry best practices, improving player experience, and fair approach to gambling.
+          - img
+        - link "Global Self-Exclusion Initiative null An initiative we launched with the goal to create a global self-exclusion system, which will allow vulnerable players to block their access to all online gambling opportunities." [ref=e1201] [cursor=pointer]:
+          - /url: https://casino.guru/global-self-exclusion-initiative
+          - generic [ref=e1202]: Global Self-Exclusion Initiative
+          - img "null" [ref=e1204]
+          - paragraph [ref=e1205]: An initiative we launched with the goal to create a global self-exclusion system, which will allow vulnerable players to block their access to all online gambling opportunities.
+          - img
+      - generic [ref=e1206]:
+        - link "Gamtegrity null A platform created to showcase all of our efforts aimed at bringing the vision of a safer and more transparent online gambling industry to reality." [ref=e1207] [cursor=pointer]:
+          - /url: https://Casino.Guru/gamtegrity
+          - generic [ref=e1208]: Gamtegrity
+          - img "null" [ref=e1210]
+          - paragraph [ref=e1211]: A platform created to showcase all of our efforts aimed at bringing the vision of a safer and more transparent online gambling industry to reality.
+          - img
+        - link "Casino Guru Awards null An ambitious project whose goal is to celebrate the greatest and the most responsible companies in iGaming and give them the recognition they deserve." [ref=e1212] [cursor=pointer]:
+          - /url: https://Casino.Guru/awards
+          - generic [ref=e1213]: Casino Guru Awards
+          - img "null" [ref=e1215]
+          - paragraph [ref=e1216]: An ambitious project whose goal is to celebrate the greatest and the most responsible companies in iGaming and give them the recognition they deserve.
+          - img
+      - generic [ref=e1218]:
+        - generic [ref=e1219]: Subscribe to our newsletter
+        - generic [ref=e1220]:
+          - generic [ref=e1221]:
+            - textbox "Insert your e-mail Insert your e-mail" [ref=e1222]:
+              - /placeholder: " "
+            - generic [ref=e1223]: Insert your e-mail
+            - generic [ref=e1224]: Insert your e-mail
+          - button "Subscribe" [ref=e1225] [cursor=pointer]
+        - generic [ref=e1227]:
+          - checkbox "I am at least 18 years old and legally allowed to play in a casino"
+          - text: I am at least 18 years old and legally allowed to play in a casino
+    - generic [ref=e1229]:
+      - generic [ref=e1230]: Play responsibly and in moderation.
+      - generic [ref=e1231]:
+        - img "18" [ref=e1233]
+        - link "GPWA - casino.guru" [ref=e1234] [cursor=pointer]:
+          - /url: https://certify.gpwa.org/verify/casino.guru/
+          - img "GPWA - casino.guru" [ref=e1235]
+        - link "Gamble Aware" [ref=e1236] [cursor=pointer]:
+          - /url: https://www.gambleaware.org/
+          - img "Gamble Aware" [ref=e1237]
+        - link "GamCare" [ref=e1238] [cursor=pointer]:
+          - /url: https://www.gamcare.org.uk/
+          - img "GamCare" [ref=e1239]
+        - link "Gambling Therapy" [ref=e1240] [cursor=pointer]:
+          - /url: https://www.gamblingtherapy.org/
+          - img "Gambling Therapy" [ref=e1241]
+        - link "GamBan" [ref=e1242] [cursor=pointer]:
+          - /url: https://gamban.com/
+          - img "GamBan" [ref=e1243]
+        - link "BetBlocker" [ref=e1244] [cursor=pointer]:
+          - /url: https://www.betblocker.org/
+          - img "BetBlocker" [ref=e1245]
+        - link "Gamecheck" [ref=e1246] [cursor=pointer]:
+          - /url: https://gamecheck.com/
+          - img "Gamecheck" [ref=e1247]
+    - generic [ref=e1248]:
+      - paragraph [ref=e1249]: Casino.guru is an independent source of information about online casinos and online casino games, not controlled by any gambling operator. All our reviews and guides are created honestly, according to the best knowledge and judgement of the members of our independent expert team; however, they are intended for informative purposes only and should not be construed as, nor relied upon as, legal advice. You should always make sure that you meet all regulatory requirements before playing in any selected casino. Copyright ©2026
+      - generic [ref=e1250]:
+        - generic [ref=e1251]: Casino Guru in other languages
+        - button "Select language" [ref=e1252] [cursor=pointer]:
+          - img
+          - generic [ref=e1253]: Select language
+          - img
+  - generic [ref=e1254]:
+    - link "Trustpilot_flash_alt" [ref=e1256] [cursor=pointer]:
+      - /url: https://www.trustpilot.com/review/casino.guru
+      - img "Trustpilot_flash_alt" [ref=e1257]
+    - link "What’s your opinion on Casino Guru? Share your feedback" [ref=e1259] [cursor=pointer]:
+      - /url: https://www.trustpilot.com/review/casino.guru
+    - generic [ref=e1260] [cursor=pointer]:
+      - img
+  - generic [ref=e1261]:
+    - link "Candy Rush_Push notification" [ref=e1263] [cursor=pointer]:
+      - /url: https://casino.guru/forum/competitions/competition--pragmatic-play---catch-the-candy-rush-fever--amp--win-a-share-of-eur-usd2-000
+      - img "Candy Rush_Push notification" [ref=e1264]
+    - link "Share your wins on Pragmatic Play slots, get another chance for winning with Casino Guru!" [ref=e1266] [cursor=pointer]:
+      - /url: https://casino.guru/forum/competitions/competition--pragmatic-play---catch-the-candy-rush-fever--amp--win-a-share-of-eur-usd2-000
+    - generic [ref=e1267] [cursor=pointer]:
+      - img
+  - generic [ref=e1268]:
+    - img [ref=e1270]
+    - generic [ref=e1271]:
+      - paragraph [ref=e1272]: Follow us on social media – Daily posts, no deposit bonuses, new slots, and more
+      - generic [ref=e1273]:
+        - link [ref=e1274] [cursor=pointer]:
+          - /url: https://www.facebook.com/profile.php?id=61558301061001
+          - img
+        - link [ref=e1275] [cursor=pointer]:
+          - /url: https://twitter.com/CasinoGuruTweet
+          - img
+        - link [ref=e1276] [cursor=pointer]:
+          - /url: https://www.instagram.com/igamingguru
+          - img
+    - generic [ref=e1277] [cursor=pointer]:
+      - img
+  - generic [ref=e1278]:
+    - img [ref=e1280]
+    - generic [ref=e1282]: Subscribe to our newsletter for no deposit bonuses, free tournaments, new slots, and more.
+    - generic [ref=e1283] [cursor=pointer]:
+      - img
+  - generic [ref=e1284]:
+    - generic:
+      - img

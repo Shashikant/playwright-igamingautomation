@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "sharp": "^0.35.1",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.3",
+    "playwright": "^1.60.0"
+  },
+  "scripts": {}
+}

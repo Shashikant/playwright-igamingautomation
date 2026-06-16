@@ -1,0 +1,48 @@
+[  -26310ms] [WARNING] A preload for 'https://use.typekit.net/af/00ac0a/00000000000000003b9b2033/27/l?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n7&v=3' is found, but is not used because the request credentials mode does not match. Consider taking a look at crossorigin attribute. @ https://casino.guru/free-casino-games/slots/slot-machine-slot-play-free:428
+[  -25980ms] [LOG] Casino guru app loaded! @ https://static.casino.guru/res/1f3bed2dccf4fb4685b5049b099f0115a/build/es6/app.es6.js:1
+[  -25793ms] [LOG] importAll @ https://static.casino.guru/res/1f3bed2dccf4fb4685b5049b099f0115a/build/es6/app.es6.js:1
+[  -25299ms] [VERBOSE] [DOM] Multiple forms should be contained in their own form elements; break up complex forms into ones that represent a single action: (More info: https://goo.gl/9p2vKq) %o @ https://casino.guru/free-casino-games/slots/slot-machine-slot-play-free:0
+[  -24888ms] [WARNING] [GSI_LOGGER]: google.accounts.id.initialize() is called multiple times. This could cause unexpected behavior and only the last initialized instance will be used. @ https://accounts.google.com/gsi/client:86
+[  -24880ms] [WARNING] [GSI_LOGGER]: google.accounts.id.initialize() is called multiple times. This could cause unexpected behavior and only the last initialized instance will be used. @ https://accounts.google.com/gsi/client:86
+[  -20833ms] [WARNING] The resource https://use.typekit.net/af/00ac0a/00000000000000003b9b2033/27/l?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n7&v=3 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://casino.guru/free-casino-games/slots/slot-machine-slot-play-free:0
+[  -19171ms] [LOG] Wrapper v1.2.6 @ https://boost2.bgaming-network.com/analytics/amplitude.js?game=SlotMachine:0
+[  -19170ms] [LOG] [Sentry] Disabled by feature flag tech_sentry_enabled @ https://boost2.bgaming-network.com/analytics/amplitude.js?game=SlotMachine:0
+[  -19017ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://data.casino.guru/custom-data.js:0
+[  -19017ms] [ERROR] Event @ https://static.casino.guru/res/1f3bed2dccf4fb4685b5049b099f0115a/build/es6/aa-init.es6.js:1
+[  -18649ms] [WARNING]     at e.registerLoaderPlugin (https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:1435498)
+    at 4815 (https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:1435561)
+    at s (https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:1623646)
+    at 3711 (https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:1163116)
+    at s (https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:1623646)
+    at https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:1626729
+    at https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:1626746 @ https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:0
+[  -18647ms] [LOG] %cbuild version: v0.0.72_v14.18.3
+spine version: @pixi-spine/all-4.1
+utils version: v14.18.3
+build time:    Fri Jun 12 2026 14:19:43 GMT+0530 (India Standard Time)  ;border: solid 1px blue; padding: 8px; font-weight: bold; @ https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:0
+[  -18243ms] [LOG] %cGrowth Drops > App Version: dr-3.2.0 border: 1px solid #E22134; padding: 4px 8px; font-weight: 600 @ https://drops-fe.bgaming-network.com/bundle.js:45
+[  -18243ms] [LOG] %cGrowth Drops > Git Branch/Git Commit: HEAD 01c66f7 v3.2.0 border: 1px solid #E22134; padding: 4px 8px; font-weight: 600 @ https://drops-fe.bgaming-network.com/bundle.js:45
+[  -18243ms] [LOG] %cGrowth Drops > Build mode: production border: 1px solid #E22134; padding: 4px 8px; font-weight: 600 @ https://drops-fe.bgaming-network.com/bundle.js:45
+[  -18228ms] [LOG] Slot Machine v0.0.1 @ https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:0
+[  -18001ms] [WARNING]     at l.load (https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:1569884)
+    at https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:1609429
+    at new Promise (<anonymous>)
+    at ot.fetchResource (https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:1609385)
+    at https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:376421
+    at new Promise (<anonymous>)
+    at c.loadLanguages (https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:376371)
+    at Tt (https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:1:1615154) @ https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:0
+[  -17945ms] [LOG] 
+ %c %c %c PixiJS 6.5.10 - ✰ WebGL 2 ✰  %c  %c  http://www.pixijs.com/  %c %c ♥%c♥%c♥ 
+
+ background: #ff66a5; padding:5px 0; background: #ff66a5; padding:5px 0; color: #ff66a5; background: #030307; padding:5px 0; background: #ff66a5; padding:5px 0; background: #ffc3dc; padding:5px 0; background: #ff66a5; padding:5px 0; color: #ff2424; background: #fff; padding:5px 0; color: #ff2424; background: #fff; padding:5px 0; color: #ff2424; background: #fff; padding:5px 0; @ https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:0
+[  -17313ms] [WARNING] Failed to decode downloaded font: https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/fonts/NotoSerif-Bold.woff2 @ https://demo.bgaming-network.com/games/SlotMachine/FUN?launch_token=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InB0X2lkIjoyOTA1OTk3NTF9LCJleHAiOjE3OTczNDMwNTl9.tuW-2JeMGx0J6SYVFerbxO8Yuo0sytM5VXMIixUOwkM:0
+[  -17313ms] [WARNING] OTS parsing error: invalid sfntVersion: -2147385327 @ https://demo.bgaming-network.com/games/SlotMachine/FUN?launch_token=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InB0X2lkIjoyOTA1OTk3NTF9LCJleHAiOjE3OTczNDMwNTl9.tuW-2JeMGx0J6SYVFerbxO8Yuo0sytM5VXMIixUOwkM:0
+[  -17271ms] [WARNING] Failed to decode downloaded font: https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/fonts/NotoSerif-Bold.woff2 @ https://demo.bgaming-network.com/games/SlotMachine/FUN?launch_token=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InB0X2lkIjoyOTA1OTk3NTF9LCJleHAiOjE3OTczNDMwNTl9.tuW-2JeMGx0J6SYVFerbxO8Yuo0sytM5VXMIixUOwkM:0
+[  -17271ms] [WARNING] OTS parsing error: invalid sfntVersion: -2147385327 @ https://demo.bgaming-network.com/games/SlotMachine/FUN?launch_token=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InB0X2lkIjoyOTA1OTk3NTF9LCJleHAiOjE3OTczNDMwNTl9.tuW-2JeMGx0J6SYVFerbxO8Yuo0sytM5VXMIixUOwkM:0
+[  -14582ms] [WARNING] The resource https://use.typekit.net/af/00ac0a/00000000000000003b9b2033/27/l?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n7&v=3 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://casino.guru/free-casino-games/slots/slot-machine-slot-play-free:0
+[  -13021ms] [WARNING] Failed to decode downloaded font: https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/fonts/NotoSerif-Bold.woff2 @ https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:0
+[  -13021ms] [WARNING] OTS parsing error: invalid sfntVersion: -2147385327 @ https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:0
+[  -12527ms] [ERROR] Permissions policy violation: accelerometer is not allowed in this document. @ https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:0
+[  -12527ms] [WARNING] The deviceorientation events are blocked by permissions policy. See https://github.com/w3c/webappsec-permissions-policy/blob/master/features.md#sensor-features @ https://cdn.bgaming-network.com/html/SlotMachine/basic/v0.0.72_v14.18.3/bundle.js:0
+[  -10081ms] [WARNING] The resource https://use.typekit.net/af/00ac0a/00000000000000003b9b2033/27/l?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n7&v=3 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://casino.guru/free-casino-games/slots/slot-machine-slot-play-free:0
