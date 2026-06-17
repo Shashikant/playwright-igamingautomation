@@ -1,7 +1,9 @@
 // pages/HelpPage.ts
 import type { Page } from '@playwright/test';
-import { captureCanvasBuffer, preprocessCrop, runOcr, parseMoney, CropDef } from '../helpers/ocrHelper';
-import { pixelsToCropPercent } from '../helpers/cropHelper';
+import { captureCanvasBuffer, preprocessCrop, readDarkPanelText, readTextFromCrop, parseMoney, CropDef } from '../helpers/ocrHelper';
+import { pixelsToCropPercent } from '../utils/cropHelper';
+import * as fs from 'fs';
+import * as path from 'path';
 
 export class HelpPage {
     readonly page: Page;
@@ -27,6 +29,41 @@ export class HelpPage {
         //await this.page.waitForTimeout(1000);
         await canvas.click({ position: { x: 1127, y: 50 }, force: true });
         await this.page.waitForTimeout(1000);
+    }
+
+    async getHelpText(): Promise<string[] | null> {
+        await this.page.waitForTimeout(2000);
+        const frame = this.page.frameLocator('#gamefileEmbed1');
+        const canvas = frame.locator('canvas');
+        await canvas.hover({ position: { x: 420, y: 400 }, force: true });
+
+        await this.page.waitForTimeout(1000);
+        const canvasBounds = await frame.locator('canvas').boundingBox();
+        const canvasWidth = canvasBounds?.width ?? 1280;
+        const canvasHeight = canvasBounds?.height ?? 610;
+        const canvasBuffer = await captureCanvasBuffer(this.page);
+
+        const helpOcrResult = await readTextFromCrop(
+            canvasBuffer,
+            pixelsToCropPercent(236, 0, 800, 530, canvasWidth, canvasHeight),
+            false,
+            'resources/screenshots/helppage-area'
+        );
+        const lines = helpOcrResult.text
+            .split(/\r?\n/)
+            .map(line => line.trim())
+            .filter(line => line.length > 0);
+        // ✅ Write extracted text to file
+
+        if (lines.length > 0) {
+            const filePath = path.join(__dirname, '../resources/textfiles/helppage-text.txt');
+            // ✅ Create directory if it doesn't exist
+            fs.mkdirSync(path.dirname(filePath), { recursive: true });
+            fs.appendFileSync(filePath, lines.join('\n'), 'utf-8');
+        }
+        console.log('File written successfully');
+        console.log('Writing to:', path.join(__dirname, '../resources/textfiles/helppage-text.txt'));
+        return lines.length > 0 ? lines : null;
     }
 
 }

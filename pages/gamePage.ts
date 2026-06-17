@@ -1,6 +1,6 @@
 // pages/GamePage.ts
 import type { Page } from '@playwright/test';
-import { captureCanvasBuffer, preprocessCrop, runOcr, parseMoney, CropDef } from '../helpers/ocrHelper';
+import { captureCanvasBuffer, preprocessCrop, parseMoney, CropDef, readTextFromCrop, readDarkPanelText } from '../helpers/ocrHelper';
 import { pixelsToCropPercent } from '../utils/cropHelper';
 
 export class GamePage {
@@ -52,7 +52,7 @@ export class GamePage {
     const frame = this.page.frameLocator('#gamefileEmbed1');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
-    await canvas.hover({position: { x: 200, y: 560 }, force: true });
+    await canvas.hover({ position: { x: 200, y: 560 }, force: true });
     await this.page.waitForTimeout(1000);
   }
 
@@ -61,9 +61,9 @@ export class GamePage {
     const frame = this.page.frameLocator('#gamefileEmbed1');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
-    await canvas.click({position: { x: 200, y: 525 }, force: true });
+    await canvas.click({ position: { x: 200, y: 525 }, force: true });
     await this.page.waitForTimeout(1000);
-    await canvas.screenshot({ path: 'resources/screenshots/help-screen.png', type: 'png' });
+    //await canvas.screenshot({ path: 'resources/screenshots/help-screen.png', type: 'png' });
   }
 
   async clickTotalBet() {
@@ -71,9 +71,53 @@ export class GamePage {
     const frame = this.page.frameLocator('#gamefileEmbed1');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
-    await canvas.click({position: { x: 420, y: 575 }, force: true });
+    await canvas.click({ position: { x: 420, y: 575 }, force: true });
     await this.page.waitForTimeout(1000);
     //await canvas.screenshot({ path: 'resources/screenshots/betOptions-screen.png', type: 'png' });
+  }
+
+  async getbetOptionsFromUI(): Promise<string[] | null> {
+    await this.page.waitForTimeout(2000);
+    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const canvas = frame.locator('canvas');
+    await canvas.hover({ position: { x: 420, y: 400 }, force: true });
+
+    await this.page.waitForTimeout(1000);
+    // await this.page.mouse.wheel(0, -300); // Scroll up to reveal more bet options
+    const canvasBounds = await frame.locator('canvas').boundingBox();
+    const canvasWidth = canvasBounds?.width ?? 1280;
+    const canvasHeight = canvasBounds?.height ?? 610;
+    const canvasBuffer = await captureCanvasBuffer(this.page);
+    const betOcrResult = await readDarkPanelText(
+      canvasBuffer,
+      pixelsToCropPercent(350, 90, 130, 455, canvasWidth, canvasHeight),
+      'resources/screenshots/betOption1-area'
+    );
+    const values1 = betOcrResult
+      .split(/\s+/)
+      .map(v => v.replace(/[^0-9.]/g, '').trim())
+      .filter(v => /^\d+\.\d{2}$/.test(v));
+    await this.page.waitForTimeout(1000);
+    await canvas.hover({ position: { x: 420, y: 400 }, force: true });
+    await this.page.waitForTimeout(1000);
+    await this.page.mouse.wheel(0, -300); // Scroll down to reveal below bet options
+    await this.page.waitForTimeout(1000);
+    const canvasBuffer2 = await captureCanvasBuffer(this.page);
+    console.log('Before OCR');
+    const betOcrResult2 = await readDarkPanelText(
+      canvasBuffer2,
+      pixelsToCropPercent(350, 90, 130, 455, canvasWidth, canvasHeight),
+      'resources/screenshots/betOption2-area'
+    );
+    console.log('After OCR');
+    const values2 = betOcrResult2
+      .split(/\s+/)
+      .map(v => v.replace(/[^0-9.]/g, '').trim())
+      .filter(v => /^\d+\.\d{2}$/.test(v));
+    const uniqueValues = Array.from(new Set([...values1, ...values2]));
+    const sortedUiBets = [...uniqueValues].sort((a, b) => parseFloat(a) - parseFloat(b));
+    console.log('[GamePage] getBetOptionsFromUI:', sortedUiBets);
+    return sortedUiBets;
   }
 
 }

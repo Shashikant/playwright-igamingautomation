@@ -4,7 +4,7 @@ import sharp from 'sharp';
 import Tesseract from 'tesseract.js';
 import type { Page } from '@playwright/test';
 
-// Fix #9: Single source of truth for strategies
+// Single source of truth for strategies
 const OCR_STRATEGIES = [
   'gray',
   'normalize',
@@ -40,14 +40,12 @@ export type OcrResult = {
 export async function captureCanvasBuffer(page: Page): Promise<Buffer> {
   const frame = page.frameLocator('#gamefileEmbed1');
   const canvas = frame.locator('canvas');
-
   await canvas.waitFor({ state: 'visible', timeout: 10_000 });
-
   return await canvas.screenshot({ type: 'png' });
 }
 
 // ---------------------------------------------------------------------------
-// Crop Calculation
+// Crop Calculation (internal)
 // ---------------------------------------------------------------------------
 
 function calculateCrop(
@@ -69,9 +67,7 @@ function calculateCrop(
 }
 
 // ---------------------------------------------------------------------------
-// Image Pre-processing
-// Fix #2: Accept Buffer instead of sharp.Sharp to avoid consuming a piped instance.
-// Fix #6: Unknown strategy throws instead of silently falling back.
+// Image Pre-processing (internal)
 // ---------------------------------------------------------------------------
 
 async function buildImage(
@@ -81,30 +77,14 @@ async function buildImage(
   const base = () => sharp(buffer).resize({ width: 1200 }).grayscale();
 
   switch (strategy) {
-    case 'gray':
-      return base().toBuffer();
-
-    case 'normalize':
-      return base().normalise().toBuffer();
-
-    case 'sharpen':
-      return base().normalise().sharpen().toBuffer();
-
-    case 'threshold100':
-      return base().normalise().threshold(100).toBuffer();
-
-    case 'threshold140':
-      return base().normalise().threshold(140).toBuffer();
-
-    case 'threshold180':
-      return base().normalise().threshold(180).toBuffer();
-
-    case 'invert':
-      return base().negate().normalise().toBuffer();
-
-    case 'invertSharpen':
-      return base().negate().normalise().sharpen().toBuffer();
-
+    case 'gray':          return base().toBuffer();
+    case 'normalize':     return base().normalise().toBuffer();
+    case 'sharpen':       return base().normalise().sharpen().toBuffer();
+    case 'threshold100':  return base().normalise().threshold(100).toBuffer();
+    case 'threshold140':  return base().normalise().threshold(140).toBuffer();
+    case 'threshold180':  return base().normalise().threshold(180).toBuffer();
+    case 'invert':        return base().negate().normalise().toBuffer();
+    case 'invertSharpen': return base().negate().normalise().sharpen().toBuffer();
     default: {
       const _exhaustive: never = strategy;
       throw new Error('Unknown OCR strategy: ' + _exhaustive);
@@ -112,15 +92,12 @@ async function buildImage(
   }
 }
 
-// Fix #1: Extract crop once into a Buffer so every strategy starts from the
-// same raw data. The old dead `baseImage` Sharp variable is removed.
 export async function preprocessCrop(
   buffer: Buffer,
   cropDef: CropDef,
   debugPrefix?: string
 ): Promise<Buffer[]> {
   const meta = await sharp(buffer).metadata();
-
   const canvasWidth  = meta.width  ?? 0;
   const canvasHeight = meta.height ?? 0;
 
@@ -129,12 +106,9 @@ export async function preprocessCrop(
   }
 
   const crop = calculateCrop(cropDef, canvasWidth, canvasHeight);
-
-  // Extract once to a Buffer; no Sharp instance is reused across strategies.
   const cropBuffer = await sharp(buffer).extract(crop).toBuffer();
 
   if (debugPrefix) {
-    // Fix #8: async write to avoid blocking the event loop
     await fs.promises.writeFile(debugPrefix + '_rawCrop.png', cropBuffer);
   }
 
@@ -153,12 +127,10 @@ export async function preprocessCrop(
 }
 
 // ---------------------------------------------------------------------------
-// OCR
-// Fix #5: Use Tesseract.WorkerOptions instead of `any`.
-// Fix #7: Wrap recognize() in a timeout guard.
+// OCR Engine (generic - no game knowledge)
 // ---------------------------------------------------------------------------
 
-export async function runOcr(
+async function runOcr(
   buffer: Buffer,
   strategy: string,
   numericOnly: boolean = false
@@ -166,22 +138,20 @@ export async function runOcr(
   const config: Partial<Tesseract.WorkerOptions> = {};
 
   if (numericOnly) {
-    // tessedit_char_whitelist is a valid Tesseract param not yet in the typings
-    (config as Record<string, unknown>)['tessedit_char_whitelist'] = '0123456789.,';
+    (config as Record<string, unknown>)['tessedit_char_whitelist'] = '0123456789.';
   }
-
-  const recognizePromise = Tesseract.recognize(buffer, 'eng', config);
 
   const timeoutPromise = new Promise<never>((_, reject) =>
     setTimeout(
-      () => reject(new Error(
-        'OCR timed out after ' + OCR_TIMEOUT_MS + 'ms [strategy=' + strategy + ']'
-      )),
+      () => reject(new Error('OCR timed out after ' + OCR_TIMEOUT_MS + 'ms [strategy=' + strategy + ']')),
       OCR_TIMEOUT_MS
     )
   );
 
-  const { data } = await Promise.race([recognizePromise, timeoutPromise]);
+  const { data } = await Promise.race([
+    Tesseract.recognize(buffer, 'eng', config),
+    timeoutPromise
+  ]);
 
   return {
     text:       data.text.trim(),
@@ -190,9 +160,6 @@ export async function runOcr(
   };
 }
 
-// Fix #3: strategy label is derived from the shared OCR_STRATEGIES constant
-//         so it can never drift out of sync with preprocessCrop.
-// Fix #10: Early-exit when confidence >= 90 to save time in CI runs.
 export async function getBestOcrResult(
   processedImages: Buffer[],
   numericOnly: boolean = false
@@ -206,19 +173,27 @@ export async function getBestOcrResult(
     results.push(result);
     console.log('[OCR] ' + result.strategy + ' | confidence=' + result.confidence + ' | text="' + result.text + '"');
 
-    // Fix #10: skip remaining strategies if confidence is already high
-    if (result.confidence >= 95 && result.text.length > 0) {
+    if (!numericOnly && result.confidence >= 95 && result.text.length > 0) {
       console.log('[OCR] Early exit on high-confidence result (strategy=' + result.strategy + ')');
       return result;
     }
   }
 
-  results.sort((a, b) => b.confidence - a.confidence);
+  if (numericOnly) {
+    const countValid = (text: string) =>
+      text.split(/\s+/).filter(v => /^\d+\.\d{2}$/.test(v.replace(/[^0-9.]/g, ''))).length;
+
+    results.sort((a, b) => countValid(b.text) - countValid(a.text));
+    console.log('[OCR] Best numeric strategy: ' + results[0].strategy);
+  } else {
+    results.sort((a, b) => b.confidence - a.confidence);
+  }
+
   return results[0];
 }
 
 // ---------------------------------------------------------------------------
-// Public API
+// Public API - generic text reader
 // ---------------------------------------------------------------------------
 
 export async function readTextFromCrop(
@@ -232,9 +207,67 @@ export async function readTextFromCrop(
 }
 
 // ---------------------------------------------------------------------------
+// Public API - invert-only OCR for dark panel / light text
+// Use this for any canvas panel with dark background and light text.
+// Confirmed best strategy via debug image analysis (see resources/screenshots).
+// ---------------------------------------------------------------------------
+
+export async function readDarkPanelText(
+  canvasBuffer: Buffer,
+  cropDef: CropDef,
+  debugPrefix?: string
+): Promise<string> {
+  const meta = await sharp(canvasBuffer).metadata();
+  const canvasWidth  = meta.width  ?? 0;
+  const canvasHeight = meta.height ?? 0;
+
+  if (!canvasWidth || !canvasHeight) {
+    throw new Error('Unable to determine canvas dimensions');
+  }
+
+  const crop = calculateCrop(cropDef, canvasWidth, canvasHeight);
+
+  // Pipeline confirmed via debug image analysis:
+  // 1. negate()    - flips dark panel to light background
+  // 2. resize 2400 - more pixels per character improves digit accuracy
+  // 3. threshold(160) - binarises to pure black/white, fixes 5 vs 2 misread
+  //    (blur in grey images causes Tesseract to misread rounded-top 5 as 2)
+  const processedBuffer = await sharp(canvasBuffer)
+    .extract(crop)
+    .resize({ width: 2400 })
+    .grayscale()
+    .negate()
+    .threshold(160)
+    .toBuffer();
+
+  if (debugPrefix) {
+    await fs.promises.writeFile(debugPrefix + '_darkPanel_invert.png', processedBuffer);
+  }
+
+  const config: Partial<Tesseract.WorkerOptions> = {};
+  (config as Record<string, unknown>)['tessedit_char_whitelist'] = '0123456789.';
+  (config as Record<string, unknown>)['tessedit_pageseg_mode']   = '6';
+
+  const timeoutPromise = new Promise<never>((_, reject) =>
+    setTimeout(
+      () => reject(new Error('OCR timed out after ' + OCR_TIMEOUT_MS + 'ms')),
+      OCR_TIMEOUT_MS
+    )
+  );
+
+  const { data } = await Promise.race([
+    Tesseract.recognize(processedBuffer, 'eng', config),
+    timeoutPromise
+  ]);
+
+  console.log('[readDarkPanelText] raw text: ' + data.text.trim());
+  console.log('[readDarkPanelText] confidence: ' + data.confidence);
+
+  return data.text.trim();
+}
+
+// ---------------------------------------------------------------------------
 // Money Parsing
-// Fix #4: Validates that commas appear only in thousands-position before
-//         stripping. EU format (1.234,56) is also handled correctly.
 // ---------------------------------------------------------------------------
 
 export function parseMoney(text: string | null | undefined): string | null {
@@ -243,34 +276,25 @@ export function parseMoney(text: string | null | undefined): string | null {
   const cleaned = text.replace(/[^\d.,]/g, '').trim();
   if (!cleaned) return null;
 
-  // Both separators present — determine which is the decimal separator
   if (cleaned.includes('.') && cleaned.includes(',')) {
     const dotIndex   = cleaned.lastIndexOf('.');
     const commaIndex = cleaned.lastIndexOf(',');
 
     if (commaIndex > dotIndex) {
-      // EU format: 1.234,56 -> 1234.56
       return cleaned.replace(/\./g, '').replace(',', '.');
     } else {
-      // US format: 1,234.56 -> 1234.56
       return cleaned.replace(/,/g, '');
     }
   }
 
-  // Only commas — validate thousands-position before stripping
   if (cleaned.includes(',') && !cleaned.includes('.')) {
     const parts = cleaned.split(',');
-
     const isValidThousands =
       parts[0].length >= 1 &&
       parts[0].length <= 3 &&
       parts.slice(1).every(p => p.length === 3);
 
-    if (isValidThousands) {
-      return parts.join('');
-    }
-
-    // Commas not in thousands-position — return as-is
+    if (isValidThousands) return parts.join('');
     return cleaned;
   }
 

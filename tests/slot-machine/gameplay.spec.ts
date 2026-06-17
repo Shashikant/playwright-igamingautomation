@@ -1,17 +1,21 @@
 import { test, expect, Page } from '@playwright/test';
 import { GamePage } from '../../pages/gamePage';
-import { GameApiHelper } from '../../helpers/gameApiHelper';
-import { captureCanvasBuffer, preprocessCrop, runOcr, readTextFromCrop } from '../../helpers/ocrHelper';
+import { GameApiCollector } from '../../helpers/gameApiHelper';
+import { captureCanvasBuffer, preprocessCrop, readTextFromCrop } from '../../helpers/ocrHelper';
 import { pixelsToCropPercent } from '../../utils/cropHelper';
 
 
 let gamePage: GamePage;
-let gameApiHelper: GameApiHelper;
+let gameApiCollector: GameApiCollector;
 
 test.beforeEach(async ({ page }) => {
     gamePage = new GamePage(page);
-    gameApiHelper = new GameApiHelper(page);
+    gameApiCollector = new GameApiCollector(page);
+    // Start listening FIRST
+    gameApiCollector.start();
     await gamePage.openGame();
+    await page.waitForTimeout(1000);
+    gameApiCollector.printCapturedCommands();
 });
 
 test('Game Play Test', async ({ page }) => {
@@ -21,41 +25,55 @@ test('Game Play Test', async ({ page }) => {
 });
 
 test("Bet options match API response", async ({ page }) => {
+    test.setTimeout(120000);
     await gamePage.clickTotalBet();
-    await page.waitForTimeout(4000); // Wait for the bet options to be displayed
+    //await page.waitForTimeout(4000); // Wait for the bet options to be displayed
     // Fix #3: read actual canvas dimensions
-    const frame = page.frameLocator('#gamefileEmbed1');
-    const canvasBounds = await frame.locator('canvas').boundingBox();
-    const canvasWidth = canvasBounds?.width ?? 1280;
-    const canvasHeight = canvasBounds?.height ?? 610;
-    const canvasBuffer = await captureCanvasBuffer(page);
-    const betOcrResult = await readTextFromCrop(
-        canvasBuffer,
-        pixelsToCropPercent(325, 90, 155, 452, canvasWidth, canvasHeight),
-        false,
-        'resources/screenshots/betOption-area'
+    const betOptionsFromUI = await gamePage.getbetOptionsFromUI();
+    //console.log('[Test] Parsed UI bet options:', betOptionsFromUI);
+    // Check available commands
+    gameApiCollector.printCapturedCommands();
+
+    // Replace 'init' with actual command once identified
+    const initData =
+        await gameApiCollector.waitForCommand(
+            'init',
+            10000
+        );
+
+    console.log(
+        'Init API Response:',
+        JSON.stringify(
+            initData,
+            null,
+            2
+        )
     );
-    console.log('Bet OCR Text:', betOcrResult.text);
-    // Fix #1: intercept init response BEFORE page load
-    const initDataPromise = gameApiHelper.waitForApiResponse('init');
-    const initData = await initDataPromise;
 
-    // Fix #5: guard against missing API shape
-    const availableBets = initData?.options?.available_bets;
-    expect(availableBets, 'API response missing available_bets').toBeDefined();
+    const availableBets =
+        initData?.options?.available_bets;
+    const normalizedApiBets =
+        availableBets.map(
+            (bet: number) =>
+                (bet / 100).toFixed(2)
+        );
 
-    // Fix #4: handle comma-formatted numbers
-    const betOptionsFromUI = betOcrResult.text
-        .split(/\s+/)
-        .map(v => v.replace(/[^0-9.]/g, '').trim())
-        .filter(v => /^\d+\.\d{2}$/.test(v));
-    console.log('[Test] Parsed UI bet options:', betOptionsFromUI);
+    const sortedApiBets = [...normalizedApiBets]
+        .sort((a, b) => parseFloat(a) - parseFloat(b));
+    expect(
+        sortedApiBets,
+        'API response missing available_bets'
+    ).toBeDefined();
 
-    console.log('Init API data:', availableBets);
+    console.log(
+        'API Bet Options:',
+        sortedApiBets
+    );
 
-    // Fix #7: assertion with context message
     expect(
         betOptionsFromUI,
-        `UI bets [${betOptionsFromUI}] do not match API bets [${availableBets}]`
-    ).toEqual(availableBets);
+        `UI bets [${betOptionsFromUI}] do not match API bets [${sortedApiBets}]`
+    ).toEqual(
+        sortedApiBets
+    );
 });
