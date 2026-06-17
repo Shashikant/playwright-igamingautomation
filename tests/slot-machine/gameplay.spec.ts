@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
     // Start listening FIRST
     gameApiCollector.start();
     await gamePage.openGame();
-    await page.waitForTimeout(1000);
+    //await page.waitForTimeout(1000);
     gameApiCollector.printCapturedCommands();
 });
 
@@ -27,11 +27,9 @@ test('Game Play Test', async ({ page }) => {
 test("Bet options match API response", async ({ page }) => {
     test.setTimeout(120000);
     await gamePage.clickTotalBet();
-    //await page.waitForTimeout(4000); // Wait for the bet options to be displayed
-    // Fix #3: read actual canvas dimensions
-    const betOptionsFromUI = await gamePage.getbetOptionsFromUI();
-    //console.log('[Test] Parsed UI bet options:', betOptionsFromUI);
-    // Check available commands
+    const sortedUiBets = await gamePage.getbetOptionsFromUI();
+    //console.log('[Test] Parsed UI bet options:', sortedUiBets);
+
     gameApiCollector.printCapturedCommands();
 
     // Replace 'init' with actual command once identified
@@ -71,9 +69,105 @@ test("Bet options match API response", async ({ page }) => {
     );
 
     expect(
-        betOptionsFromUI,
-        `UI bets [${betOptionsFromUI}] do not match API bets [${sortedApiBets}]`
+        sortedUiBets,
+        `UI bets [${sortedUiBets}] do not match API bets [${sortedApiBets}]`
     ).toEqual(
         sortedApiBets
+    );
+});
+
+
+test("Initial balance match API response", async ({ page }) => {
+    test.setTimeout(120000);
+
+    const initialUIBalance = await gamePage.getInitialBalanceFromUI();
+    //console.log('[Test] Parsed UI initial balance:', initialBalance);
+
+    gameApiCollector.printCapturedCommands();
+
+    // Replace 'init' with actual command once identified
+    const initData =
+        await gameApiCollector.waitForCommand(
+            'init',
+            10000
+        );
+
+    console.log(
+        'Init API Response:',
+        JSON.stringify(
+            initData,
+            null,
+            2
+        )
+    );
+
+    const initialApiBalance =
+        initData?.balance?.wallet;
+    const normalizedApiInitialBalance = initialApiBalance != null
+        ? (Number(initialApiBalance) / 100).toFixed(2)
+        : null;
+
+    expect(
+        normalizedApiInitialBalance,
+        'API response missing initial balance'
+    ).not.toBeNull();
+
+    console.log('UI Balance  :', initialUIBalance);
+    console.log('API Balance :', normalizedApiInitialBalance);
+
+    expect(
+        initialUIBalance,
+        `UI initial balance [${initialUIBalance}] do not match API Initial Balance [${normalizedApiInitialBalance}]`
+    ).toEqual(
+        normalizedApiInitialBalance
+    );
+});
+
+
+test("Initial bet match API response", async ({ page }) => {
+    test.setTimeout(120000);
+
+    const initialUIBet = await gamePage.getInitialBetFromUI();
+    //console.log('[Test] Parsed UI initial bet:', initialBet);
+
+    gameApiCollector.printCapturedCommands();
+
+    // Replace 'init' with actual command once identified
+    const initData =
+        await gameApiCollector.waitForCommand(
+            'init',
+            10000
+        );
+
+    console.log(
+        'Init API Response:',
+        JSON.stringify(
+            initData,
+            null,
+            2
+        )
+    );
+
+    const initialApiBet =
+        initData?.options?.base_bet;
+
+    const normalizedApiInitialBet = initialApiBet != null
+        ? (Number(initialApiBet) / 100).toFixed(2)
+        : null;
+
+
+    expect(
+        normalizedApiInitialBet,
+        'API response missing initial bet'
+    ).not.toBeNull();
+
+    console.log('UI Inital Bet  :', initialUIBet);
+    console.log('API Bet :', normalizedApiInitialBet);
+
+    expect(
+        initialUIBet,
+        `UI initial bet [${initialUIBet}] do not match API Initial Bet [${normalizedApiInitialBet}]`
+    ).toEqual(
+        normalizedApiInitialBet
     );
 });

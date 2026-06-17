@@ -26,7 +26,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
+    baseURL: 'https://casino.guru/free-casino-games/slots/slot-machine-slot-play-free',
     viewport: { width: 1280, height: 800 }, // or null to use full screen
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */

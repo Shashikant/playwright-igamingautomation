@@ -21,7 +21,7 @@ export class GamePage {
   }
 
   async openGame() {
-    await this.page.goto('https://casino.guru/free-casino-games/slots/slot-machine-slot-play-free', { waitUntil: 'networkidle' });
+    await this.page.goto('', { waitUntil: 'networkidle' });
     //Make Full Screen
     await this.page.locator('#game_link').getByText('Play for Free').click();
     await this.page.locator('.games-box-header-switch.games-box-header-switch-fullscreen').click();
@@ -54,6 +54,16 @@ export class GamePage {
     await this.page.waitForTimeout(1000);
     await canvas.hover({ position: { x: 200, y: 560 }, force: true });
     await this.page.waitForTimeout(1000);
+  }
+
+   async clickPaytableIcon() {
+    await this.page.waitForTimeout(2000);
+    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const canvas = frame.locator('canvas');
+    await this.page.waitForTimeout(1000);
+    await canvas.click({ position: { x: 200, y: 560 }, force: true });
+    await this.page.waitForTimeout(1000);
+    //await canvas.screenshot({ path: 'resources/screenshots/paytable-screen.png', type: 'png' });
   }
 
   async clickHelpIcon() {
@@ -118,6 +128,62 @@ export class GamePage {
     const sortedUiBets = [...uniqueValues].sort((a, b) => parseFloat(a) - parseFloat(b));
     console.log('[GamePage] getBetOptionsFromUI:', sortedUiBets);
     return sortedUiBets;
+  }
+
+  async getInitialBalanceFromUI(): Promise<string[] | null> {
+    await this.page.waitForTimeout(2000);
+    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const canvas = frame.locator('canvas');
+    await this.page.waitForTimeout(1000);
+    const canvasBounds = await frame.locator('canvas').boundingBox();
+    const canvasWidth = canvasBounds?.width ?? 1280;
+    const canvasHeight = canvasBounds?.height ?? 610;
+    const canvasBuffer = await captureCanvasBuffer(this.page);
+    const initBalanceOcrResult = await readDarkPanelText(
+      canvasBuffer,
+      pixelsToCropPercent(185, 576, 160, 25, canvasWidth, canvasHeight),
+      'resources/screenshots/initial-balance-area'
+    );
+    const balance = Array.isArray(initBalanceOcrResult)
+      ? initBalanceOcrResult[0]
+      : initBalanceOcrResult;
+    console.log('UI Balance:', balance);
+
+    const filteredBalances = balance
+    .split(/\s+/)
+    .map((v:string) => v.replace(/[^0-9.]/g, '').trim())
+    .filter((v:string) => /^\d+\.\d{2}$/.test(v));
+
+    console.log('[GamePage] getInitialBalanceFromUI:', filteredBalances);
+    return filteredBalances[0] ?? null;  // ✅ return first match, not the array
+  }
+
+  async getInitialBetFromUI(): Promise<string[] | null> {
+    await this.page.waitForTimeout(2000);
+    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const canvas = frame.locator('canvas');
+    await this.page.waitForTimeout(1000);
+    const canvasBounds = await frame.locator('canvas').boundingBox();
+    const canvasWidth = canvasBounds?.width ?? 1280;
+    const canvasHeight = canvasBounds?.height ?? 610;
+    const canvasBuffer = await captureCanvasBuffer(this.page);
+    const initBetOcrResult = await readDarkPanelText(
+      canvasBuffer,
+      pixelsToCropPercent(370, 570, 130, 455, canvasWidth, canvasHeight),
+      'resources/screenshots/initial-bet-area'
+    );
+    const bet = Array.isArray(initBetOcrResult)
+      ? initBetOcrResult[0]
+      : initBetOcrResult;
+    console.log('UI Bet:', bet);
+
+    const filteredBet = bet
+    .split(/\s+/)
+    .map((v:string) => v.replace(/[^0-9.]/g, '').trim())
+    .filter((v:string) => /^\d+\.\d{2}$/.test(v));
+
+    console.log('[GamePage] getInitialBetFromUI:', filteredBet);
+    return filteredBet[0] ?? null;  // ✅ return first match, not the array
   }
 
 }
