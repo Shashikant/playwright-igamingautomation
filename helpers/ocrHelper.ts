@@ -300,3 +300,50 @@ export function parseMoney(text: string | null | undefined): string | null {
 
   return cleaned;
 }
+
+
+export type AbsoluteCrop = {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+};
+
+/**
+ * Crops a specific region from the canvas screenshot buffer.
+ * Use this when you want to compare icons or graphics (e.g., sound icon).
+ *
+ * @param canvasBuffer Full canvas screenshot buffer
+ * @param crop Absolute pixel coordinates { left, top, width, height }
+ * @param debugPrefix Optional prefix to save cropped image for debugging
+ * @returns Cropped buffer
+ */
+export async function cropCanvasRegion(
+  canvasBuffer: Buffer,
+  crop: AbsoluteCrop,
+  debugPrefix?: string
+): Promise<Buffer> {
+  const meta = await sharp(canvasBuffer).metadata();
+  const canvasWidth  = meta.width  ?? 0;
+  const canvasHeight = meta.height ?? 0;
+
+  if (!canvasWidth || !canvasHeight) {
+    throw new Error('Unable to determine canvas dimensions');
+  }
+
+  // Clamp crop values to canvas bounds
+  const safeCrop = {
+    left:   Math.max(0, Math.min(crop.left, canvasWidth - 1)),
+    top:    Math.max(0, Math.min(crop.top, canvasHeight - 1)),
+    width:  Math.max(1, Math.min(crop.width, canvasWidth - crop.left)),
+    height: Math.max(1, Math.min(crop.height, canvasHeight - crop.top))
+  };
+
+  const croppedBuffer = await sharp(canvasBuffer).extract(safeCrop).toBuffer();
+
+  if (debugPrefix) {
+    await fs.promises.writeFile(debugPrefix + '_cropped.png', croppedBuffer);
+  }
+
+  return croppedBuffer;
+}

@@ -56,7 +56,7 @@ export class GamePage {
     await this.page.waitForTimeout(1000);
   }
 
-   async clickPaytableIcon() {
+  async clickPaytableIcon() {
     await this.page.waitForTimeout(2000);
     const frame = this.page.frameLocator('#gamefileEmbed1');
     const canvas = frame.locator('canvas');
@@ -150,9 +150,9 @@ export class GamePage {
     console.log('UI Balance:', balance);
 
     const filteredBalances = balance
-    .split(/\s+/)
-    .map((v:string) => v.replace(/[^0-9.]/g, '').trim())
-    .filter((v:string) => /^\d+\.\d{2}$/.test(v));
+      .split(/\s+/)
+      .map((v: string) => v.replace(/[^0-9.]/g, '').trim())
+      .filter((v: string) => /^\d+\.\d{2}$/.test(v));
 
     console.log('[GamePage] getInitialBalanceFromUI:', filteredBalances);
     return filteredBalances[0] ?? null;  // ✅ return first match, not the array
@@ -178,12 +178,39 @@ export class GamePage {
     console.log('UI Bet:', bet);
 
     const filteredBet = bet
-    .split(/\s+/)
-    .map((v:string) => v.replace(/[^0-9.]/g, '').trim())
-    .filter((v:string) => /^\d+\.\d{2}$/.test(v));
+      .split(/\s+/)
+      .map((v: string) => v.replace(/[^0-9.]/g, '').trim())
+      .filter((v: string) => /^\d+\.\d{2}$/.test(v));
 
     console.log('[GamePage] getInitialBetFromUI:', filteredBet);
     return filteredBet[0] ?? null;  // ✅ return first match, not the array
   }
 
+  async captureRegion(
+    fileName: string,
+    clip: {
+      x: number;
+      y: number;
+      width: number;
+      height: number;
+    }
+  ) {
+    await this.page.screenshot({
+      path: fileName,
+      clip
+    });
+  }
+
+
+    async muteSound() {
+    await this.page.waitForTimeout(2000);
+    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const canvas = frame.locator('canvas');
+    await this.page.waitForTimeout(1000);
+    await canvas.click({ position: { x: 1104, y: 16 }, force: true });
+    await this.page.waitForTimeout(1000);
+    //await canvas.screenshot({ path: 'resources/screenshots/help-screen.png', type: 'png' });
+  }
+  
 }
+
