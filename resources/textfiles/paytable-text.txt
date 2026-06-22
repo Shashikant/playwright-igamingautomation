@@ -18,4 +18,15 @@ Bonus symbols trigger the Bonus game.
 4 -x10 8 - x500
 5-x20 9 - x2024
 6 - x50
-10.00 FUN 5.00 FUN 2.00 FUN 040 FUN
+10.00 FUN 5.00 FUN 2.00 FUN 040 FUNp Slot .
+== a
+VIachine e
+- ® — Ld
+Bonus symbol
+JETS Pays only in the Bonus game. 3 or more
+\ Bonus symbols trigger the Bonus game.
+3-3 7 - x100
+4 -x10 8 - x500
+5-x20 9 - x2024
+6 - x50
+10.00 FUN 5.00 FUN 2.00 FUN 0.40 FUN
