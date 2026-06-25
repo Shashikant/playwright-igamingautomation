@@ -90,7 +90,7 @@ test("Total bet during game play match API response", async ({ page }) => {
         );
 
     console.log(
-        'Init API Response:',
+        'Game Play API Response:',
         JSON.stringify(
             initData,
             null,
@@ -98,26 +98,26 @@ test("Total bet during game play match API response", async ({ page }) => {
         )
     );
 
-    const initialApiBet =
+    const totalApiBet =
         initData?.outcome?.bet;
 
-    const normalizedApiInitialBet = initialApiBet != null
-        ? (Number(initialApiBet) / 100).toFixed(2)
+    const normalizedApiTotalBet = totalApiBet != null
+        ? (Number(totalApiBet) / 100).toFixed(2)
         : null;
 
 
     expect(
-        normalizedApiInitialBet,
-        'API response missing initial bet'
+        normalizedApiTotalBet,
+        'API response missing total bet'
     ).not.toBeNull();
 
     console.log('UI Total Bet  :', totalUIBet);
-    console.log('API Bet :', normalizedApiInitialBet);
+    console.log('API Bet :', normalizedApiTotalBet);
 
     expect(
         totalUIBet,
-        `UI total bet [${totalUIBet}] do not match API Total Bet [${normalizedApiInitialBet}]`
+        `UI total bet [${totalUIBet}] do not match API Total Bet [${normalizedApiTotalBet}]`
     ).toEqual(
-        normalizedApiInitialBet
+        normalizedApiTotalBet
     );
 });

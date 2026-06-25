@@ -6,7 +6,7 @@ export class GameApiCollector {
   private responses = new Map<string, any[]>();
   private started = false;
 
-  constructor(private page: Page) {}
+  constructor(private page: Page) { }
 
   /**
    * Start listening for all SlotMachine API responses.
@@ -24,58 +24,31 @@ export class GameApiCollector {
 
           const url = response.url();
 
-          if (
-            !url.includes('/api/SlotMachine/') ||
-            response.status() !== 200
-          ) {
+          if (!url.includes('/game/') || !url.includes('ccy=GBP') || response.status() !== 200) {
             return;
           }
 
-          const postData =
-            response.request().postData() ?? '';
+          const postData = response.request().postData() ?? '';
+          let command = 'init'; // default for launch GET
 
-          const commandMatch =
-            postData.match(
-              /"command"\s*:\s*"([^"]+)"/
-            );
-
-          if (!commandMatch) {
-            console.log(
-              '[GameApiCollector] Command not found in request:',
-              postData
-            );
-            return;
+          const commandMatch = postData.match(/"command"\s*:\s*"([^"]+)"/);
+          if (commandMatch) {
+            command = commandMatch[1];
           }
-
-          const command =
-            commandMatch[1];
 
           let responseBody: any;
-
           try {
-            responseBody =
-              await response.json();
+            responseBody = await response.json();
           } catch {
-
-            responseBody =
-              await response.text();
-
+            responseBody = await response.text();
           }
 
           if (!this.responses.has(command)) {
-            this.responses.set(
-              command,
-              []
-            );
+            this.responses.set(command, []);
           }
+          this.responses.get(command)!.push(responseBody);
 
-          this.responses
-            .get(command)!
-            .push(responseBody);
-
-          console.log(
-            `[GameApiCollector] Captured command: ${command}`
-          );
+          console.log(`[GameApiCollector] Captured command: ${command} (${url})`);
 
         } catch (error) {
 

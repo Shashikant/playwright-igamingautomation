@@ -8,9 +8,9 @@ import fs from 'fs';
 
 export class GamePage {
   readonly page: Page;
-  readonly iframeSelector = '#gamefileEmbed1';
-  readonly playLinkSelector = '#game_link';
-  readonly fullscreenToggle = '.games-box-header-switch.games-box-header-switch-fullscreen';
+  readonly iframeSelector = '#fancybox__iframe_1_0';
+  readonly playLinkSelector = '//a[contains(text(),"Play Demo")]';
+  
 
   // // percent-based crops tuned for Balance and Total bet (adjust if needed)
   // readonly balanceCrop: CropDef = { leftPct: 0.04, topPct: 0.86, widthPct: 0.30, heightPct: 0.10 };
@@ -26,15 +26,21 @@ export class GamePage {
   async openGame() {
     await this.page.goto('', { waitUntil: 'networkidle' });
     //Make Full Screen
-    await this.page.locator('#game_link').getByText('Play for Free').click();
-    await this.page.locator('.games-box-header-switch.games-box-header-switch-fullscreen').click();
-
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
-    await canvas.waitFor();
-    await this.page.waitForTimeout(8000);
-    await canvas.click({ button: 'left', position: { x: 640, y: 505 }, force: true });
-
+    await this.page.locator('//a[contains(text(),"I am 18 years or older")]').click();
+    await this.page.locator('//span[contains(text(),"Demo")]').nth(1).click();
+    await this.page.waitForTimeout(1000);
+    await this.page.locator('//div[@class="game-card__view-tooltip-wrapper"]//span[contains(text(),"Play on Desktop")]').nth(1).click();
+    await this.page.waitForTimeout(1000);
+    await this.page.locator('//button[@id="onetrust-reject-all-handler"]').click();
+    await canvas.screenshot({ path: 'resources/screenshots/IntroScreen.png', type: 'png' });
+    await canvas.click({ button: 'left', position: { x: 471, y: 313 }, force: true });
+    await this.page.waitForTimeout(2000);
+    await canvas.screenshot({ path: 'resources/screenshots/InitalGameUI.png', type: 'png' });
+    await canvas.click({ button: 'left', position: { x: 617, y: 579 }, force: true });
+    await this.page.waitForTimeout(2000);
+    await canvas.screenshot({ path: 'resources/screenshots/MainGameUI.png', type: 'png' });
     const box = await canvas.boundingBox();
     console.log(box);
     await this.page.waitForTimeout(1000);
@@ -43,16 +49,16 @@ export class GamePage {
   // Click the SPIN button by computing absolute coords from canvas bounding box.
   async clickSpin() {
     await this.page.waitForTimeout(2000);
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
-    await canvas.click({ button: 'left', position: { x: 1055, y: 575 }, force: true });
+    await canvas.click({ button: 'left', position: { x: 1080, y: 300 }, force: true });
     //await this.page.waitForTimeout(1000);
   }
 
   async hoverInfo() {
     await this.page.waitForTimeout(2000);
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
     await canvas.hover({ position: { x: 200, y: 560 }, force: true });
@@ -61,7 +67,7 @@ export class GamePage {
 
   async clickPaytableIcon() {
     await this.page.waitForTimeout(2000);
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
     await canvas.click({ position: { x: 200, y: 560 }, force: true });
@@ -71,7 +77,7 @@ export class GamePage {
 
   async clickHelpIcon() {
     await this.page.waitForTimeout(2000);
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
     await canvas.click({ position: { x: 200, y: 525 }, force: true });
@@ -79,19 +85,19 @@ export class GamePage {
     //await canvas.screenshot({ path: 'resources/screenshots/help-screen.png', type: 'png' });
   }
 
-  async clickTotalBet() {
+  async clickBetSettingsButton() {
     await this.page.waitForTimeout(2000);
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
-    await canvas.click({ position: { x: 420, y: 575 }, force: true });
+    await canvas.click({ position: { x: 1085, y: 393 }, force: true });
     await this.page.waitForTimeout(1000);
-    //await canvas.screenshot({ path: 'resources/screenshots/betOptions-screen.png', type: 'png' });
+    await canvas.screenshot({ path: 'resources/screenshots/betOptions-screen.png', type: 'png' });
   }
 
   async getbetOptionsFromUI(): Promise<string[] | null> {
     await this.page.waitForTimeout(2000);
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await canvas.hover({ position: { x: 420, y: 400 }, force: true });
 
@@ -103,39 +109,21 @@ export class GamePage {
     const canvasBuffer = await captureCanvasBuffer(this.page);
     const betOcrResult = await readDarkPanelText(
       canvasBuffer,
-      pixelsToCropPercent(350, 90, 130, 455, canvasWidth, canvasHeight),
+      pixelsToCropPercent(325, 260, 590, 270, canvasWidth, canvasHeight),
       'resources/screenshots/betOption1-area'
     );
-    const values1 = betOcrResult
-      .split(/\s+/)
-      .map(v => v.replace(/[^0-9.]/g, '').trim())
-      .filter(v => /^\d+\.\d{2}$/.test(v));
-    await this.page.waitForTimeout(1000);
-    await canvas.hover({ position: { x: 420, y: 400 }, force: true });
-    await this.page.waitForTimeout(1000);
-    await this.page.mouse.wheel(0, -300); // Scroll down to reveal below bet options
-    await this.page.waitForTimeout(1000);
-    const canvasBuffer2 = await captureCanvasBuffer(this.page);
-    console.log('Before OCR');
-    const betOcrResult2 = await readDarkPanelText(
-      canvasBuffer2,
-      pixelsToCropPercent(350, 90, 130, 455, canvasWidth, canvasHeight),
-      'resources/screenshots/betOption2-area'
-    );
-    console.log('After OCR');
-    const values2 = betOcrResult2
-      .split(/\s+/)
-      .map(v => v.replace(/[^0-9.]/g, '').trim())
-      .filter(v => /^\d+\.\d{2}$/.test(v));
-    const uniqueValues = Array.from(new Set([...values1, ...values2]));
-    const sortedUiBets = [...uniqueValues].sort((a, b) => parseFloat(a) - parseFloat(b));
+    const values1 = betOcrResult.split(/\s+/)                // split on whitespace
+    .map(t => t.replace(/[^0-9.]/g, "")) // keep only digits and dot
+    .filter(t => t.length > 0)   // remove empties
+    .map(v => parseFloat(v).toFixed(2));;
+    const sortedUiBets = [...values1].sort((a, b) => parseFloat(a) - parseFloat(b));
     console.log('[GamePage] getBetOptionsFromUI:', sortedUiBets);
     return sortedUiBets;
   }
 
-  async getInitialBalanceFromUI(): Promise<string[] | null> {
+  async getInitialBalanceFromUI(): Promise<string | null> {
     await this.page.waitForTimeout(2000);
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
     const canvasBounds = await frame.locator('canvas').boundingBox();
@@ -144,7 +132,7 @@ export class GamePage {
     const canvasBuffer = await captureCanvasBuffer(this.page);
     const initBalanceOcrResult = await readDarkPanelText(
       canvasBuffer,
-      pixelsToCropPercent(185, 576, 160, 25, canvasWidth, canvasHeight),
+      pixelsToCropPercent(210, 595, 200, 28, canvasWidth, canvasHeight),
       'resources/screenshots/initial-balance-area'
     );
     const balance = Array.isArray(initBalanceOcrResult)
@@ -156,14 +144,15 @@ export class GamePage {
       .split(/\s+/)
       .map((v: string) => v.replace(/[^0-9.]/g, '').trim())
       .filter((v: string) => /^\d+\.\d{2}$/.test(v));
+    const initalBalance = Number(filteredBalances[0]).toFixed(2);
 
-    console.log('[GamePage] getInitialBalanceFromUI:', filteredBalances);
-    return filteredBalances[0] ?? null;  // ✅ return first match, not the array
+    console.log('[GamePage] getInitialBalanceFromUI:', initalBalance);
+    return initalBalance ?? null;  // ✅ return first match, not the array
   }
 
-  async getInitialBetFromUI(): Promise<string[] | null> {
+  async getInitialBetFromUI(): Promise<string | null> {
     await this.page.waitForTimeout(2000);
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
     const canvasBounds = await frame.locator('canvas').boundingBox();
@@ -172,7 +161,7 @@ export class GamePage {
     const canvasBuffer = await captureCanvasBuffer(this.page);
     const initBetOcrResult = await readDarkPanelText(
       canvasBuffer,
-      pixelsToCropPercent(370, 570, 130, 455, canvasWidth, canvasHeight),
+      pixelsToCropPercent(845, 595, 140, 28, canvasWidth, canvasHeight),
       'resources/screenshots/initial-bet-area'
     );
     const bet = Array.isArray(initBetOcrResult)
@@ -184,14 +173,15 @@ export class GamePage {
       .split(/\s+/)
       .map((v: string) => v.replace(/[^0-9.]/g, '').trim())
       .filter((v: string) => /^\d+\.\d{2}$/.test(v));
+    const defaultBet = Number(filteredBet[0]/20).toFixed(2);
 
-    console.log('[GamePage] getInitialBetFromUI:', filteredBet);
-    return filteredBet[0] ?? null;  // ✅ return first match, not the array
+    console.log('[GamePage] getInitialBetFromUI:', defaultBet);
+    return defaultBet;  // ✅ return first match, not the array
   }
 
   async getTotalBetFromUI(): Promise<string[] | null> {
     await this.page.waitForTimeout(2000);
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
     const canvasBounds = await frame.locator('canvas').boundingBox();
@@ -235,7 +225,7 @@ export class GamePage {
 
   async muteSound() {
     await this.page.waitForTimeout(2000);
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
     await canvas.click({ position: { x: 1104, y: 16 }, force: true });
@@ -245,7 +235,7 @@ export class GamePage {
 
   async clickAutoplayButton() {
     await this.page.waitForTimeout(2000);
-    const frame = this.page.frameLocator('#gamefileEmbed1');
+    const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
     await canvas.click({ position: { x: 988, y: 577 }, force: true });

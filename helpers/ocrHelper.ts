@@ -38,7 +38,7 @@ export type OcrResult = {
 // ---------------------------------------------------------------------------
 
 export async function captureCanvasBuffer(page: Page): Promise<Buffer> {
-  const frame = page.frameLocator('#gamefileEmbed1');
+  const frame = page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
   const canvas = frame.locator('canvas');
   await canvas.waitFor({ state: 'visible', timeout: 10_000 });
   return await canvas.screenshot({ type: 'png' });
@@ -235,6 +235,7 @@ export async function readDarkPanelText(
   const processedBuffer = await sharp(canvasBuffer)
     .extract(crop)
     .resize({ width: 2400 })
+    .withMetadata({ density: 300 }) 
     .grayscale()
     .negate()
     .threshold(160)
@@ -246,7 +247,7 @@ export async function readDarkPanelText(
 
   const config: Partial<Tesseract.WorkerOptions> = {};
   (config as Record<string, unknown>)['tessedit_char_whitelist'] = '0123456789.';
-  (config as Record<string, unknown>)['tessedit_pageseg_mode']   = '6';
+  (config as Record<string, unknown>)['tessedit_pageseg_mode']   = '11';
 
   const timeoutPromise = new Promise<never>((_, reject) =>
     setTimeout(

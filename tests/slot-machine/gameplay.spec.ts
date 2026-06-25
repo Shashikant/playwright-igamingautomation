@@ -19,14 +19,14 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('Game Play Test', async ({ page }) => {
-
+    test.setTimeout(120000);
     await gamePage.clickSpin();
 
 });
 
-test("Bet options match API response", async ({ page }) => {
+test("UI Bet options match API response", async ({ page }) => {
     test.setTimeout(120000);
-    await gamePage.clickTotalBet();
+    await gamePage.clickBetSettingsButton();
     const sortedUiBets = await gamePage.getbetOptionsFromUI();
     //console.log('[Test] Parsed UI bet options:', sortedUiBets);
 
@@ -48,14 +48,12 @@ test("Bet options match API response", async ({ page }) => {
         )
     );
 
-    const availableBets =
-        initData?.options?.available_bets;
-    const normalizedApiBets =
-        availableBets.map(
-            (bet: number) =>
-                (bet / 100).toFixed(2)
-        );
-
+    const availableBetsStr =
+        initData?.oga?.parameters?.stakeValues ?? "";
+    const availableBets = availableBetsStr.split(" ").map(Number);
+    const normalizedApiBets = availableBets.map(
+        (bet: number) => bet.toFixed(2)
+    );
     const sortedApiBets = [...normalizedApiBets]
         .sort((a, b) => parseFloat(a) - parseFloat(b));
     expect(
@@ -102,9 +100,9 @@ test("Initial balance match API response", async ({ page }) => {
     );
 
     const initialApiBalance =
-        initData?.balance?.wallet;
+        initData?.oga?.player?.balance?.amount;
     const normalizedApiInitialBalance = initialApiBalance != null
-        ? (Number(initialApiBalance) / 100).toFixed(2)
+        ? Number(initialApiBalance).toFixed(2)
         : null;
 
     expect(
@@ -149,10 +147,10 @@ test("Initial bet match API response", async ({ page }) => {
     );
 
     const initialApiBet =
-        initData?.options?.base_bet;
+        initData?.oga?.parameters?.defaultStake;
 
     const normalizedApiInitialBet = initialApiBet != null
-        ? (Number(initialApiBet) / 100).toFixed(2)
+        ? Number(initialApiBet).toFixed(2)
         : null;
 
 

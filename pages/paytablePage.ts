@@ -24,7 +24,7 @@ export class PaytablePage {
 
     async closePaytableScreen() {
         //await this.page.waitForTimeout(2000);
-        const frame = this.page.frameLocator('#gamefileEmbed1');
+        const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
         const canvas = frame.locator('canvas');
         //await this.page.waitForTimeout(1000);
         await canvas.click({ position: { x: 1127, y: 50 }, force: true });
@@ -33,7 +33,7 @@ export class PaytablePage {
 
     async getPaytableText(): Promise<string[] | null> {
         await this.page.waitForTimeout(2000);
-        const frame = this.page.frameLocator('#gamefileEmbed1');
+        const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
         const canvas = frame.locator('canvas');
         await canvas.hover({ position: { x: 420, y: 400 }, force: true });
 

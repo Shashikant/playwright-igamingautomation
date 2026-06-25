@@ -18,7 +18,7 @@ export class TotalBetPage extends GamePage {
 
     async clickTotalBetDownArrow() {
         await this.page.waitForTimeout(2000);
-        const frame = this.page.frameLocator('#gamefileEmbed1');
+        const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
         const canvas = frame.locator('canvas');
         await this.page.waitForTimeout(1000);
         await canvas.click({ position: { x: 496, y: 592 }, force: true });
@@ -27,10 +27,12 @@ export class TotalBetPage extends GamePage {
 
     async clickTotalBetUpArrow() {
         await this.page.waitForTimeout(2000);
-        const frame = this.page.frameLocator('#gamefileEmbed1');
+        const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
         const canvas = frame.locator('canvas');
         await this.page.waitForTimeout(1000);
         await canvas.click({ position: { x: 496, y: 562 }, force: true });
         await this.page.waitForTimeout(1000);
     }
+
+    
 }
