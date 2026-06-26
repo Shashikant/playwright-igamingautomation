@@ -1,16 +1,17 @@
 // pages/GamePage.ts
 import type { Page } from '@playwright/test';
 import { captureCanvasBuffer, preprocessCrop, parseMoney, CropDef, readTextFromCrop, readDarkPanelText } from '../helpers/ocrHelper';
-import { pixelsToCropPercent } from '../utils/cropHelper';
+import { pixelsToCropPercent, debugCrops } from '../utils/cropHelper';
 import { PNG } from 'pngjs';
 import pixelmatch from 'pixelmatch';
 import fs from 'fs';
+
 
 export class GamePage {
   readonly page: Page;
   readonly iframeSelector = '#fancybox__iframe_1_0';
   readonly playLinkSelector = '//a[contains(text(),"Play Demo")]';
-  
+
 
   // // percent-based crops tuned for Balance and Total bet (adjust if needed)
   // readonly balanceCrop: CropDef = { leftPct: 0.04, topPct: 0.86, widthPct: 0.30, heightPct: 0.10 };
@@ -95,28 +96,60 @@ export class GamePage {
     await canvas.screenshot({ path: 'resources/screenshots/betOptions-screen.png', type: 'png' });
   }
 
-  async getbetOptionsFromUI(): Promise<string[] | null> {
+  async getBetOptionsFromUI(): Promise<number[]> {
     await this.page.waitForTimeout(2000);
     const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
-    await canvas.hover({ position: { x: 420, y: 400 }, force: true });
-
     await this.page.waitForTimeout(1000);
-    // await this.page.mouse.wheel(0, -300); // Scroll up to reveal more bet options
-    const canvasBounds = await frame.locator('canvas').boundingBox();
+
+    const canvasBounds = await canvas.boundingBox();
     const canvasWidth = canvasBounds?.width ?? 1280;
     const canvasHeight = canvasBounds?.height ?? 610;
+
     const canvasBuffer = await captureCanvasBuffer(this.page);
-    const betOcrResult = await readDarkPanelText(
-      canvasBuffer,
-      pixelsToCropPercent(325, 260, 590, 270, canvasWidth, canvasHeight),
-      'resources/screenshots/betOption1-area'
-    );
-    const values1 = betOcrResult.split(/\s+/)                // split on whitespace
-    .map(t => t.replace(/[^0-9.]/g, "")) // keep only digits and dot
-    .filter(t => t.length > 0)   // remove empties
-    .map(v => parseFloat(v).toFixed(2));;
-    const sortedUiBets = [...values1].sort((a, b) => parseFloat(a) - parseFloat(b));
+
+    const betTileCrops = [
+      { x: 371, y: 300, w: 105, h: 39 }, // 0.20
+      { x: 505, y: 300, w: 105, h: 39 }, // 0.40
+      { x: 637, y: 300, w: 105, h: 39 }, // 0.60
+      { x: 769, y: 300, w: 105, h: 39 }, // 0.80
+      { x: 367, y: 372, w: 100, h: 40 }, // 1
+      { x: 507, y: 376, w: 100, h: 40 }, // 2
+      { x: 640, y: 376, w: 100, h: 40 }, // 4
+      { x: 770, y: 376, w: 100, h: 40 }, // 6
+      { x: 375, y: 451, w: 100, h: 40 }, // 8
+      { x: 507, y: 451, w: 100, h: 40 }, // 10
+      { x: 638, y: 451, w: 100, h: 40 }, // 15
+      { x: 771, y: 451, w: 100, h: 40 }, // 20
+    ];
+    await debugCrops(canvasBuffer, betTileCrops);
+    const betOptions: number[] = [];
+
+    for (let i = 0; i < betTileCrops.length; i++) {
+      //const crop = betTileCrops[i];
+      await debugCrops(canvasBuffer, betTileCrops);
+      const crofDef = pixelsToCropPercent(
+        betTileCrops[i].x,
+        betTileCrops[i].y,
+        betTileCrops[i].w,
+        betTileCrops[i].h,
+        canvasWidth,
+        canvasHeight
+      )
+      const ocrResult = await readTextFromCrop(
+        canvasBuffer,
+        crofDef,
+        true, // numericOnly
+        `resources/screenshots/betOption-${i + 1}`
+      );
+      
+      const match = ocrResult.text.match(/(\d+(\.\d+)?)/);
+      if (match) {
+        betOptions.push(Number(parseFloat(match[0]).toFixed(2)));
+      }
+    }
+
+    const sortedUiBets = [...betOptions].sort((a, b) => a - b);
     console.log('[GamePage] getBetOptionsFromUI:', sortedUiBets);
     return sortedUiBets;
   }
@@ -173,7 +206,7 @@ export class GamePage {
       .split(/\s+/)
       .map((v: string) => v.replace(/[^0-9.]/g, '').trim())
       .filter((v: string) => /^\d+\.\d{2}$/.test(v));
-    const defaultBet = Number(filteredBet[0]/20).toFixed(2);
+    const defaultBet = Number(filteredBet[0] / 20).toFixed(2);
 
     console.log('[GamePage] getInitialBetFromUI:', defaultBet);
     return defaultBet;  // ✅ return first match, not the array
@@ -238,7 +271,7 @@ export class GamePage {
     const frame = this.page.frameLocator('//iframe[@data-behaviour="play-demo-iframe"]');
     const canvas = frame.locator('canvas');
     await this.page.waitForTimeout(1000);
-    await canvas.click({ position: { x: 988, y: 577 }, force: true });
+    await canvas.click({ position: { x: 1084, y: 200 }, force: true });
     await this.page.waitForTimeout(1000);
     //await canvas.screenshot({ path: 'resources/screenshots/autplay-control-screen.png', type: 'png' });
   }
@@ -251,7 +284,7 @@ export class GamePage {
     tolerance: number = 50         // default tolerance
   ): Promise<boolean> {
     const baselineImg = PNG.sync.read(fs.readFileSync(baselinePath));
-    const actualImg   = PNG.sync.read(actualBuffer);
+    const actualImg = PNG.sync.read(actualBuffer);
 
     if (baselineImg.width !== actualImg.width || baselineImg.height !== actualImg.height) {
       throw new Error(`Image sizes differ: baseline=${baselineImg.width}x${baselineImg.height}, actual=${actualImg.width}x${actualImg.height}`);

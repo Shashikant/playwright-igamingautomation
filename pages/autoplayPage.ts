@@ -2,7 +2,7 @@ import { GamePage } from './gamePage';
 import { captureCanvasBuffer, cropCanvasRegion } from '../helpers/ocrHelper';
 
 export class AutoplayPage extends GamePage {
-  private autoplayIconCrop = { left: 963, top: 544, width: 52, height: 64 };
+  private autoplayIconCrop = { left: 1045, top: 162, width: 77, height: 74 };
 
   async captureAutoplayIcon(debugPrefix?: string): Promise<Buffer> {
     const canvasBuffer = await captureCanvasBuffer(this.page);

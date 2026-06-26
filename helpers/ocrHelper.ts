@@ -74,7 +74,7 @@ async function buildImage(
   buffer: Buffer,
   strategy: OcrStrategy
 ): Promise<Buffer> {
-  const base = () => sharp(buffer).resize({ width: 1200 }).grayscale();
+  const base = () => sharp(buffer).resize({ width: 350 }).grayscale();
 
   switch (strategy) {
     case 'gray':          return base().toBuffer();
@@ -234,7 +234,7 @@ export async function readDarkPanelText(
   //    (blur in grey images causes Tesseract to misread rounded-top 5 as 2)
   const processedBuffer = await sharp(canvasBuffer)
     .extract(crop)
-    .resize({ width: 2400 })
+    .resize({ width: 350,kernel: sharp.kernel.cubic })
     .withMetadata({ density: 300 }) 
     .grayscale()
     .negate()
@@ -247,7 +247,7 @@ export async function readDarkPanelText(
 
   const config: Partial<Tesseract.WorkerOptions> = {};
   (config as Record<string, unknown>)['tessedit_char_whitelist'] = '0123456789.';
-  (config as Record<string, unknown>)['tessedit_pageseg_mode']   = '11';
+  (config as Record<string, unknown>)['tessedit_pageseg_mode']   = '7';
 
   const timeoutPromise = new Promise<never>((_, reject) =>
     setTimeout(
@@ -348,3 +348,5 @@ export async function cropCanvasRegion(
 
   return croppedBuffer;
 }
+
+

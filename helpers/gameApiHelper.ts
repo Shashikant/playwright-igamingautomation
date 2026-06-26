@@ -48,7 +48,7 @@ export class GameApiCollector {
           }
           this.responses.get(command)!.push(responseBody);
 
-          console.log(`[GameApiCollector] Captured command: ${command} (${url})`);
+          //console.log(`[GameApiCollector] Captured command: ${command} (${url})`);
 
         } catch (error) {
 

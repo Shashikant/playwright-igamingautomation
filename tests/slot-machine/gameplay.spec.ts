@@ -27,7 +27,7 @@ test('Game Play Test', async ({ page }) => {
 test("UI Bet options match API response", async ({ page }) => {
     test.setTimeout(120000);
     await gamePage.clickBetSettingsButton();
-    const sortedUiBets = await gamePage.getbetOptionsFromUI();
+    const sortedUiBets = await gamePage.getBetOptionsFromUI();
     //console.log('[Test] Parsed UI bet options:', sortedUiBets);
 
     gameApiCollector.printCapturedCommands();
@@ -39,14 +39,14 @@ test("UI Bet options match API response", async ({ page }) => {
             10000
         );
 
-    console.log(
-        'Init API Response:',
-        JSON.stringify(
-            initData,
-            null,
-            2
-        )
-    );
+    // //console.log(
+    //     'Init API Response:',
+    //     JSON.stringify(
+    //         initData,
+    //         null,
+    //         2
+    //     )
+    // );
 
     const availableBetsStr =
         initData?.oga?.parameters?.stakeValues ?? "";
